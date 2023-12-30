@@ -51,22 +51,18 @@ Java source code. Packages:<br>
 	<a href="https://github.com/k1729p/Study22/tree/main/account-receiver/src/test/java/kp">kp</a><br>
 <img src="images/aquaSquare.png">
     <i>project 'Study22-account-sender', application sources</i>&nbsp;:&nbsp;
-	<a href="https://github.com/k1729p/Study22/tree/main/account-sender/src/main/java/kp">kp</a><br>
+	<a href="https://github.com/k1729p/Study22/tree/main/account-sender/src/main/java/kp/sender">kp.sender</a><br>
 <img src="images/aquaHR-500.png">
 </P>
 
 <P>
 <img src="images/yellowHR-500.png"><br>
 <img src="images/yellowSquare.png">
-    <i>project 'Study22-account-receiver'</i>&nbsp;:&nbsp;
-    <a href="http://htmlpreview.github.io/?https://github.com/k1729p/Study22/blob/main/account-receiver/docs/apidocs/index.html">
+    <i>project 'Study22'</i>&nbsp;:&nbsp;
+    <a href="http://htmlpreview.github.io/?https://github.com/k1729p/Study22/blob/main/docs/apidocs/index.html">
 	Java API Documentation</a>&nbsp;●&nbsp;
-    <a href="http://htmlpreview.github.io/?https://github.com/k1729p/Study22/blob/main/account-receiver/docs/testapidocs/index.html">
+    <a href="http://htmlpreview.github.io/?https://github.com/k1729p/Study22/blob/main/docs/testapidocs/index.html">
 	Java Test API Documentation</a><br>
-<img src="images/yellowSquare.png">
-    <i>project 'Study22-account-sender'</i>&nbsp;:&nbsp;
-    <a href="http://htmlpreview.github.io/?https://github.com/k1729p/Study22/blob/main/account-sender/docs/apidocs/overview-tree.html">
-	Java API Documentation</a><br>
 <img src="images/yellowHR-500.png">
 </P>
 
@@ -77,37 +73,37 @@ Java source code. Packages:<br>
 <img src="images/orangeHR-500.png"><br>
 
 <img src="images/orangeSquare.png"> 1. With batch file
-<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/0_batch/"01%20Docker%20run%20Kafka%20MongoDB%20PostgreSQL.bat">
+<a href="https://github.com/k1729p/Study22/blob/main/0_batch/01%20Docker%20run%20Kafka%20MongoDB%20PostgreSQL.bat">
 <I>"01 Docker run Kafka MongoDB PostgreSQL.bat"</I></a> create and run Docker containers<br>
 <img src="images/orangeSquare.png"><img src="images/spacer-32.png">for Kafka broker, MongoDB database, and PostgreSQL database.<br>
 
 <img src="images/orangeSquare.png"> 2. With batch file
-<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/0_batch/"02%20Docker%20build%20sender%20and%20start.bat">
+<a href="https://github.com/k1729p/Study22/blob/main/0_batch/02%20Docker%20build%20sender%20and%20start.bat">
 <I>"02 Docker build sender and start.bat"</I></a> build the Docker image and<br>
 <img src="images/orangeSquare.png"><img src="images/spacer-32.png"> start the container with the sender application.<br>
 
 <img src="images/orangeSquare.png"> 3. With batch file
-<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/0_batch/"03%20Docker%20build%20receiver%20and%20start%20Quarkus.bat">
+<a href="https://github.com/k1729p/Study22/blob/main/0_batch/03%20Docker%20build%20receiver%20and%20start%20Quarkus.bat">
 <I>"03 Docker build receiver and start Quarkus.bat"</I></a> build the Docker image and<br>
 <img src="images/orangeSquare.png"><img src="images/spacer-32.png">start the container with the receiver application.
 It builds the Quarkus native image.<br>
 
 <img src="images/orangeSquare.png"> 4. With batch file
-<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/0_batch/"04%20Kubernetes%20build.bat">
+<a href="https://github.com/k1729p/Study22/blob/main/0_batch/04%20Kubernetes%20build.bat">
 <I>"04 Kubernetes build.bat"</I></a> create kind cluster, install Kafka, MongoDB, and PostgreSQL, and<br>
 <img src="images/orangeSquare.png"><img src="images/spacer-32.png">load Docker images for the sender application and the receiver application.<br>
 
 <img src="images/orangeSquare.png"> 5. With batch file
-<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/0_batch/"05%20show%20Kubernetes%20logs.bat">
+<a href="https://github.com/k1729p/Study22/blob/main/0_batch/05%20show%20Kubernetes%20logs.bat">
 <I>"05 show Kubernetes logs.bat"</I></a> show a log tail for a broker, databases and applications.<br>
 
 <img src="images/orangeSquare.png"> 6. With batch file
-<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/0_batch/"06%20CURL%20call%20Quarkus.bat">
+<a href="https://github.com/k1729p/Study22/blob/main/0_batch/06%20CURL%20call%20Quarkus.bat">
 <I>"06 CURL call Quarkus.bat"</I></a>
 call the "read account by name" endpoint on Quarkus server.<br>
 
 <img src="images/orangeSquare.png"> 7. With batch file
-<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/0_batch/"07%20start%20Docker%20Quarkus.bat">
+<a href="https://github.com/k1729p/Study22/blob/main/0_batch/07%20start%20Docker%20Quarkus.bat">
 <I>"07 start Docker Quarkus.bat"</I></a>
 restart the Docker container with the receiver application.<br>
 <img src="images/orangeSquare.png"><img src="images/spacer-32.png">Before this starter batch execution the application should not run.<br>
@@ -117,8 +113,42 @@ restart the Docker container with the receiver application.<br>
 <HR/>
 <H3 id="TWO">❷ Account Receiver</H3>
 
+<P>
+The Docker configuration files are in directory:
+<a href="https://github.com/k1729p/Study22/tree/main/docker-config">docker-config</a>
+</P>
+<P>
+The Kubernetes configuration files are in directory:
+<a href="https://github.com/k1729p/Study22/tree/main/kubernetes-config">kubernetes-config</a>
+</P>
+
+<P>
+The consumer method for Kafka record: 
+<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/kafka/consumers/AccountConsumer.java#L47">
+kp.kafka.consumers.AccountConsumer::consume</a> consumes Kafka records.
+</P>
+
+<P>
+The service method for the MongoDB database: 
+<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/services/AccountMongoService.java#L54">
+kp.services.AccountMongoService::processPayload</a> creates MongoDB entity from Kafka record payload.
+</P>
+
+<P>
+The service method for the PostgreSQL database: 
+<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/services/AccountPostgresService.java#L68">
+kp.services.AccountPostgresService::createAccount</a> creates new PostgreSQL entity from existing MongoDB entity.
+</P>
+
+<P>
+The REST endpoint method: 
+<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/resources/AccountResource.java#L65">
+kp.resources.AccountResource::readAccount</a> reads account data from PostgreSQL database.
+</P>
+
+
 <P><img src="images/greenCircle.png">
-2.1. The <a href="https://github.com/k1729p/Study22/blob/main/2-server/src/main/resources/static/index.html">home page</a>.<br>
+2.1. The <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/resources/META-INF/resources/index.html">home page</a>.<br>
 
 <IMG src="images/ScreenshotHomePage.png" height="30" width="50"/><BR>
 <img src="images/blackArrowUp.png">
@@ -148,26 +178,14 @@ For delivering the accounts to Kafka Broker it is responsible the sender applica
 
 <P>
 <img src="images/greenCircle.png">The Java application with Kafka producer running in endless loop. 
-The producer method: kp.sender.kafka.producers.AccountProducer::select.  sends Kafka records.
-<a href="https://github.com/k1729p/Study22/blob/main/src/main/java/kp/sender/kafka/producers/AccountProducer.java#L71">
-kp.selectors.KpSelector::select</a>.
 </P>
-
+<P>
+The producer method: 
+<a href="https://github.com/k1729p/Study22/blob/main/account-sender/src/main/java/kp/sender/kafka/producers/AccountProducer.java#L45">
+kp.sender.kafka.producers.AccountProducer::produceRecords</a> produces Kafka records.
 </P>
 
 <a href="#top">Back to the top of the page</a>
 <HR/>
-<P>
-GraphQL ????????????? <br/>
-https://graphql.org/<br/>
-https://spring.io/projects/spring-graphql<br/>
-https://lordofthejars.github.io/quarkus-cheat-sheet/#_graphql<br/>
-<br/>
-https://spring.io/projects/spring-data-jpa<br/>
-<br/>
-JPA EntityGraph<br/>
-https://thorben-janssen.com/jpa-21-entity-graph-part-1-named-entity/<br/>
-</P>
-
 </BODY>
 </HTML>
