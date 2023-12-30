@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+	<META charset="UTF-8">
+</HEAD>
+<BODY>
+<a href="../../../tree/main/docs"><IMG src="images/ColorScheme.png" height="25" width="800"/></a>
+<H2 id="contents">Study22 README Contents</H2>
+<H3>Research Kubernetes and Quarkus</H3>
+<P>
+The <a href="https://kubernetes.io/docs/home/">Kubernetes</a> is a container-orchestration system
+for automating container deployment, scaling, and management.<br/>
+The <a href="https://quarkus.io">Quarkus</a> is a Java framework tailored for deployment on Kubernetes.<br/>
+</P>
+<IMG src="images/MermaidFlowchart.png" height="25" width="25"/>
+
+<P>
+The <a href="https://quarkus.io/guides/hibernate-orm-panache">Panache</a>
+is a Quarkus-specific library for the development of the Hibernate-based persistence layer. It is similar to Spring Data JPA.<br/>
+For running the local Kubernetes cluster in Docker container it is used <a href="https://kind.sigs.k8s.io/">kind</a> ('Kubernetes in Docker').<br/>
+The Kubernetes images for Kafka, MongoDB, and PostgreSQL are from from <a href="https://github.com/bitnami/containers">Bitnami Images</a>.
+</P>
+
+<P>
+The screenshots:
+<UL>
+<LI>endpoint <a href="images/Screenshot.png">
+'<b>qwerty</b>'</a> presentation</LI>
+</UL>
+</P>
+
+<HR/>
+
+<P>
+The sections of this project:
+<OL>
+<LI><a href="#ONE"><b>Docker and Kubernetes Build</b></a></LI>
+<LI><a href="#TWO"><b>Account Receiver</b></a></LI>
+<LI><a href="#THREE"><b>Account Sender</b></a></LI>
+</OL>
+</P>
+
+<P>
+Java source code. Packages:<br>
+<img src="images/aquaHR-500.png"><br>
+<img src="images/aquaSquare.png">
+    <i>project 'Study22-account-receiver', application sources</i>&nbsp;:&nbsp;
+	<a href="https://github.com/k1729p/Study22/tree/main/account-receiver/src/main/java/kp">kp</a><br>
+<img src="images/aquaSquare.png">
+    <i>project 'Study22-account-receiver', test sources</i>&nbsp;:&nbsp;
+	<a href="https://github.com/k1729p/Study22/tree/main/account-receiver/src/test/java/kp">kp</a><br>
+<img src="images/aquaSquare.png">
+    <i>project 'Study22-account-sender', application sources</i>&nbsp;:&nbsp;
+	<a href="https://github.com/k1729p/Study22/tree/main/account-sender/src/main/java/kp">kp</a><br>
+<img src="images/aquaHR-500.png">
+</P>
+
+<P>
+<img src="images/yellowHR-500.png"><br>
+<img src="images/yellowSquare.png">
+    <i>project 'Study22-account-receiver'</i>&nbsp;:&nbsp;
+    <a href="http://htmlpreview.github.io/?https://github.com/k1729p/Study22/blob/main/account-receiver/docs/apidocs/index.html">
+	Java API Documentation</a>&nbsp;●&nbsp;
+    <a href="http://htmlpreview.github.io/?https://github.com/k1729p/Study22/blob/main/account-receiver/docs/testapidocs/index.html">
+	Java Test API Documentation</a><br>
+<img src="images/yellowSquare.png">
+    <i>project 'Study22-account-sender'</i>&nbsp;:&nbsp;
+    <a href="http://htmlpreview.github.io/?https://github.com/k1729p/Study22/blob/main/account-sender/docs/apidocs/overview-tree.html">
+	Java API Documentation</a><br>
+<img src="images/yellowHR-500.png">
+</P>
+
+<HR/>
+<H3 id="ONE">❶ Docker and Kubernetes Build</H3>
+
+<P>Action:<br>
+<img src="images/orangeHR-500.png"><br>
+
+<img src="images/orangeSquare.png"> 1. With batch file
+<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/0_batch/"01%20Docker%20run%20Kafka%20MongoDB%20PostgreSQL.bat">
+<I>"01 Docker run Kafka MongoDB PostgreSQL.bat"</I></a> create and run Docker containers<br>
+<img src="images/orangeSquare.png"><img src="images/spacer-32.png">for Kafka broker, MongoDB database, and PostgreSQL database.<br>
+
+<img src="images/orangeSquare.png"> 2. With batch file
+<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/0_batch/"02%20Docker%20build%20sender%20and%20start.bat">
+<I>"02 Docker build sender and start.bat"</I></a> build the Docker image and<br>
+<img src="images/orangeSquare.png"><img src="images/spacer-32.png"> start the container with the sender application.<br>
+
+<img src="images/orangeSquare.png"> 3. With batch file
+<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/0_batch/"03%20Docker%20build%20receiver%20and%20start%20Quarkus.bat">
+<I>"03 Docker build receiver and start Quarkus.bat"</I></a> build the Docker image and<br>
+<img src="images/orangeSquare.png"><img src="images/spacer-32.png">start the container with the receiver application.
+It builds the Quarkus native image.<br>
+
+<img src="images/orangeSquare.png"> 4. With batch file
+<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/0_batch/"04%20Kubernetes%20build.bat">
+<I>"04 Kubernetes build.bat"</I></a> create kind cluster, install Kafka, MongoDB, and PostgreSQL, and<br>
+<img src="images/orangeSquare.png"><img src="images/spacer-32.png">load Docker images for the sender application and the receiver application.<br>
+
+<img src="images/orangeSquare.png"> 5. With batch file
+<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/0_batch/"05%20show%20Kubernetes%20logs.bat">
+<I>"05 show Kubernetes logs.bat"</I></a> show a log tail for a broker, databases and applications.<br>
+
+<img src="images/orangeSquare.png"> 6. With batch file
+<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/0_batch/"06%20CURL%20call%20Quarkus.bat">
+<I>"06 CURL call Quarkus.bat"</I></a>
+call the "read account by name" endpoint on Quarkus server.<br>
+
+<img src="images/orangeSquare.png"> 7. With batch file
+<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/0_batch/"07%20start%20Docker%20Quarkus.bat">
+<I>"07 start Docker Quarkus.bat"</I></a>
+restart the Docker container with the receiver application.<br>
+<img src="images/orangeSquare.png"><img src="images/spacer-32.png">Before this starter batch execution the application should not run.<br>
+<img src="images/orangeHR-500.png"></P>
+
+<a href="#top">Back to the top of the page</a>
+<HR/>
+<H3 id="TWO">❷ Account Receiver</H3>
+
+<P><img src="images/greenCircle.png">
+2.1. The <a href="https://github.com/k1729p/Study22/blob/main/2-server/src/main/resources/static/index.html">home page</a>.<br>
+
+<IMG src="images/ScreenshotHomePage.png" height="30" width="50"/><BR>
+<img src="images/blackArrowUp.png">
+<I>The screenshot of the home page.</I>
+</P>
+<P>
+The <b>Swagger UI</b> page <a href="images/SwaggerUIScreenshot.png">screenshot</a>
+</P>
+
+<P><img src="images/greenCircle.png">
+2.2. The Quarkus server with Kafka consumer and REST endpoints
+</P>
+
+<P>
+The lists with Kafka records are consumed in the AccountConsumer class.<br>
+The payload with JSON content is deserialized and persisted as a Account entity in MongoDB database.<br>
+<br>
+The GET endpoint in AccountResource class reads account by name from PostgreSQL database.<br>
+If entity is absent in PostgreSQL database, then it is read from MongoDB database and added as a new entity to PostgreSQL database.<br>
+<br>
+For delivering the accounts to Kafka Broker it is responsible the sender application.<br>
+</P>
+
+<a href="#top">Back to the top of the page</a>
+<HR/>
+<H3 id="THREE">❸ Account Sender</H3>
+
+<P>
+<img src="images/greenCircle.png">The Java application with Kafka producer running in endless loop. 
+The producer method: kp.sender.kafka.producers.AccountProducer::select.  sends Kafka records.
+<a href="https://github.com/k1729p/Study22/blob/main/src/main/java/kp/sender/kafka/producers/AccountProducer.java#L71">
+kp.selectors.KpSelector::select</a>.
+</P>
+
+</P>
+
+<a href="#top">Back to the top of the page</a>
+<HR/>
+</BODY>
+</HTML>
