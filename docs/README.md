@@ -76,27 +76,22 @@ Java source code. Packages:<br>
 <a href="https://github.com/k1729p/Study22/blob/main/0_batch/01%20Docker%20run%20Kafka%20MongoDB%20PostgreSQL.bat">
 <I>"01 Docker run Kafka MongoDB PostgreSQL.bat"</I></a> create and run Docker containers<br>
 <img src="images/orangeSquare.png"><img src="images/spacer-32.png">for Kafka broker, MongoDB database, and PostgreSQL database.<br>
-
 <img src="images/orangeSquare.png"> 2. With batch file
 <a href="https://github.com/k1729p/Study22/blob/main/0_batch/02%20Docker%20build%20sender%20and%20start.bat">
 <I>"02 Docker build sender and start.bat"</I></a> build the Docker image and<br>
 <img src="images/orangeSquare.png"><img src="images/spacer-32.png"> start the container with the sender application.<br>
-
 <img src="images/orangeSquare.png"> 3. With batch file
 <a href="https://github.com/k1729p/Study22/blob/main/0_batch/03%20Docker%20build%20receiver%20and%20start%20Quarkus.bat">
 <I>"03 Docker build receiver and start Quarkus.bat"</I></a> build the Docker image and<br>
 <img src="images/orangeSquare.png"><img src="images/spacer-32.png">start the container with the receiver application.
 It builds the Quarkus native image.<br>
-
 <img src="images/orangeSquare.png"> 4. With batch file
 <a href="https://github.com/k1729p/Study22/blob/main/0_batch/04%20Kubernetes%20build.bat">
 <I>"04 Kubernetes build.bat"</I></a> create kind cluster, install Kafka, MongoDB, and PostgreSQL, and<br>
 <img src="images/orangeSquare.png"><img src="images/spacer-32.png">load Docker images for the sender application and the receiver application.<br>
-
 <img src="images/orangeSquare.png"> 5. With batch file
 <a href="https://github.com/k1729p/Study22/blob/main/0_batch/05%20show%20Kubernetes%20logs.bat">
 <I>"05 show Kubernetes logs.bat"</I></a> show a log tail for a broker, databases and applications.<br>
-
 <img src="images/orangeSquare.png"> 6. With batch file
 <a href="https://github.com/k1729p/Study22/blob/main/0_batch/06%20CURL%20call%20Quarkus.bat">
 <I>"06 CURL call Quarkus.bat"</I></a>
@@ -123,29 +118,30 @@ The Kubernetes configuration files are in directory:
 </P>
 
 <P>
-The consumer method for Kafka record: 
+The consumer method for Kafka record 
 <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/kafka/consumers/AccountConsumer.java#L47">
 kp.kafka.consumers.AccountConsumer::consume</a> consumes Kafka records.
 </P>
 
 <P>
-The service method for the MongoDB database: 
+The service method for the MongoDB database 
 <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/services/AccountMongoService.java#L54">
 kp.services.AccountMongoService::processPayload</a> creates MongoDB entity from Kafka record payload.
 </P>
 
 <P>
-The service method for the PostgreSQL database: 
+The service method for the PostgreSQL database 
 <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/services/AccountPostgresService.java#L68">
 kp.services.AccountPostgresService::createAccount</a> creates new PostgreSQL entity from existing MongoDB entity.
 </P>
 
 <P>
-The REST endpoint method: 
+The REST endpoint method 
 <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/resources/AccountResource.java#L65">
 kp.resources.AccountResource::readAccount</a> reads account data from PostgreSQL database.
 </P>
-
+The Docker containers <a href="images/ScreenshotDockerContainers.png">screenshot</a>
+</P>
 
 <P><img src="images/greenCircle.png">
 2.1. The <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/resources/META-INF/resources/index.html">home page</a>.<br>
