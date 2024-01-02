@@ -18,6 +18,8 @@ For running the local Kubernetes cluster in Docker container it is used <a href=
 The Kubernetes images for Kafka, MongoDB, and PostgreSQL are from from <a href="https://github.com/bitnami/containers">Bitnami Images</a>.
 </P>
 <P>
+The Account Receiver is implemented as a Quarkus application with Kafka consumer and REST endpoints.
+The MongoDB database is used for fast consuming big lists with Kafka records. 
 <IMG src="images/MermaidFlowchart2.png" height="75" width="485"/><br>
 <img src="images/blackArrowUp.png">
 <I>The data caching strategy implemented in Account Receiver.</I>
@@ -114,21 +116,20 @@ restart the Docker container with the receiver application.<br>
 <a href="#top">Back to the top of the page</a>
 <HR/>
 <H3 id="TWO">❷ Account Receiver</H3>
-
 <P><img src="images/greenCircle.png">
 2.1. The web resources were placed at <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/resources/META-INF/resources"
 >'src/main/resources/META-INF/resources'</a>. They are served under the root context.
 </P>
 <P>
-The Account Receiver home page:
+The Account Receiver <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/resources/META-INF/resources/index.html"
+>home page</a>:
 <UL>
 <LI>on Kubernetes it is at <a href="http://localhost:32123/">http://localhost:32123/</a></LI>
 <LI>on Docker it is at <a href="http://localhost:8080/">http://localhost:8080/</a></LI>
 </UL>
 </P>
 
-The <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/resources/META-INF/resources/index.html"
->home page</a>.<br>
+<P>
 <IMG src="images/ScreenshotHomePage.png" height="30" width="50"/><BR>
 <img src="images/blackArrowUp.png">
 <I>The screenshot of the home page.</I>
@@ -137,11 +138,8 @@ The <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/ma
 The <b>Swagger UI</b> page <a href="images/SwaggerUIScreenshot.png">screenshot</a>
 </P>
 
-<P>
-The consumer method for Kafka record 
-<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/kafka/consumers/AccountConsumer.java#L47">
-kp.kafka.consumers.AccountConsumer::consume</a> consumes Kafka records.
-</P>
+<P><img src="images/greenCircle.png">
+2.2. Reading the account by name.
 
 <P>
 The service method for the MongoDB database 
@@ -179,18 +177,19 @@ From consumed Kafka records were created the account entities. Then they were pe
 
 
 <P>
-The console log fragments from the run of the batch file <b>"06 CURL call Quarkus.bat"</b><br>
-The console log <a href="images/CURLreadAccounts.png">screenshot</a> from the 'read account' endpoint calls<br>
-The console log <a href="images/CURLdeleteAccounts.png">screenshot</a> from the 'delete accounts' endpoint call 
-</P>
-<P>
 The Kubernetes pod <b>study22-acc-receiver</b> <a href="images/AccountReceiverReadAccount.png">screenshot</a>
 for the account reading.<br>
 REST endpoint.
 </P>
 
 <P><img src="images/greenCircle.png">
-2.2. The Quarkus server with Kafka consumer and REST endpoints
+2.2. CONSUMER CONSUMER CONSUMER CONSUMER CONSUMER CONSUMER 
+</P>
+
+<P>
+The consumer method for Kafka record 
+<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/kafka/consumers/AccountConsumer.java#L47">
+kp.kafka.consumers.AccountConsumer::consume</a> consumes Kafka records.
 </P>
 
 <P>
@@ -215,6 +214,7 @@ The producer method:
 <a href="https://github.com/k1729p/Study22/blob/main/account-sender/src/main/java/kp/sender/kafka/producers/AccountProducer.java#L45">
 kp.sender.kafka.producers.AccountProducer::produceRecords</a> produces Kafka records.
 </P>
+
 
 <a href="#top">Back to the top of the page</a>
 <HR/>

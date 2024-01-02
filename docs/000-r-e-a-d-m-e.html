@@ -117,10 +117,18 @@ restart the Docker container with the receiver application.<br>
 
 <P><img src="images/greenCircle.png">
 2.1. The web resources were placed at <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/resources/META-INF/resources"
->'src/main/resources/META-INF/resources'</a>.
-They are served at <a href="http://localhost:8080/">http://localhost:8080/</a> (under the root context).<br>
-The <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/resources/META-INF/resources/index.html"
->home page</a>.<br>
+>'src/main/resources/META-INF/resources'</a>. They are served under the root context.
+</P>
+<P>
+The Account Receiver <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/resources/META-INF/resources/index.html"
+>home page</a>:
+<UL>
+<LI>on Kubernetes it is at <a href="http://localhost:32123/">http://localhost:32123/</a></LI>
+<LI>on Docker it is at <a href="http://localhost:8080/">http://localhost:8080/</a></LI>
+</UL>
+</P>
+
+<P>
 <IMG src="images/ScreenshotHomePage.png" height="30" width="50"/><BR>
 <img src="images/blackArrowUp.png">
 <I>The screenshot of the home page.</I>
