@@ -19,7 +19,7 @@ The Kubernetes images for Kafka, MongoDB, and PostgreSQL are from from <a href="
 </P>
 <P>
 The Account Receiver is implemented as a Quarkus application with Kafka consumer and REST endpoints.
-The MongoDB database is used for fast consuming big lists with Kafka records. 
+The MongoDB database is used for fast consuming of the big lists with Kafka records. 
 <IMG src="images/MermaidFlowchart2.png" height="75" width="485"/><br>
 <img src="images/blackArrowUp.png">
 <I>The data caching strategy implemented in Account Receiver.</I>
@@ -118,7 +118,7 @@ restart the Docker container with the receiver application.<br>
 <H3 id="TWO">❷ Account Receiver</H3>
 <P><img src="images/greenCircle.png">
 2.1. The web resources were placed at <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/resources/META-INF/resources"
->'src/main/resources/META-INF/resources'</a>. They are served under the root context.
+>'src/main/resources/META-INF/resources'</a>.
 </P>
 <P>
 The Account Receiver <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/resources/META-INF/resources/index.html"
@@ -130,16 +130,24 @@ The Account Receiver <a href="https://github.com/k1729p/Study22/blob/main/accoun
 </P>
 
 <P>
-<IMG src="images/ScreenshotHomePage.png" height="30" width="50"/><BR>
+<IMG src="images/ScreenshotHomePage.png" height="300" width="505"/><BR>
 <img src="images/blackArrowUp.png">
 <I>The screenshot of the home page.</I>
 </P>
 <P>
-The <b>Swagger UI</b> page <a href="images/SwaggerUIScreenshot.png">screenshot</a>
+The Swagger UI page <a href="images/ScreenshotSwaggerUI.png">screenshot</a>
+</P>
+<P>
+The OpenAPI document page <a href="images/ScreenshotOpenAPI.png">screenshot</a>
 </P>
 
 <P><img src="images/greenCircle.png">
 2.2. Reading the account by name.
+<P>
+<IMG src="images/EndpointReadAccount.png" height="320" width="305"/><BR>
+<img src="images/blackArrowUp.png">
+<I>The result from the endpoint 'Read account with name'.</I>
+</P>
 
 <P>
 The service method for the MongoDB database 
@@ -201,6 +209,13 @@ If entity is absent in PostgreSQL database, then it is read from MongoDB databas
 <br>
 For delivering the accounts to Kafka Broker it is responsible the sender application.<br>
 </P>
+
+<P>
+<IMG src="images/CURLdeleteAccounts.png" height="50" width="200"/><BR>
+<img src="images/blackArrowUp.png">
+<I>The result from the 'Delete accounts.</I>
+</P>
+
 
 <a href="#top">Back to the top of the page</a>
 <HR/>
