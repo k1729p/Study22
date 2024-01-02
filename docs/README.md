@@ -28,14 +28,6 @@ The Kubernetes images for Kafka, MongoDB, and PostgreSQL are from from <a href="
 <I>The Account Sender generates accounts and feeds them to Kafka broker.</I>
 </P>
 
-<P>
-The screenshots:
-<UL>
-<LI>endpoint <a href="images/Screenshot.png">
-'<b>qwerty</b>'</a> presentation</LI>
-</UL>
-</P>
-
 <HR/>
 
 <P>
@@ -125,8 +117,16 @@ restart the Docker container with the receiver application.<br>
 
 <P><img src="images/greenCircle.png">
 2.1. The web resources were placed at <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/resources/META-INF/resources"
->'src/main/resources/META-INF/resources'</a>.
-They are served at <a href="http://localhost:8080/">http://localhost:8080/</a> (under the root context).<br>
+>'src/main/resources/META-INF/resources'</a>. They are served under the root context.
+</P>
+<P>
+The Account Receiver home page:
+<UL>
+<LI>on Kubernetes it is at <a href="http://localhost:32123/">http://localhost:32123/</a></LI>
+<LI>on Docker it is at <a href="http://localhost:8080/">http://localhost:8080/</a></LI>
+</UL>
+</P>
+
 The <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/resources/META-INF/resources/index.html"
 >home page</a>.<br>
 <IMG src="images/ScreenshotHomePage.png" height="30" width="50"/><BR>
