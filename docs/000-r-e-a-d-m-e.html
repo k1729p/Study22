@@ -138,16 +138,11 @@ The payload with JSON content is deserialized and persisted as a Account entity 
 The GET endpoint in AccountResource class reads account by name from PostgreSQL database.<br>
 If entity is absent in PostgreSQL database, then it is read from MongoDB database and added as a new entity to PostgreSQL database.<br>
 </P>
-
-<P><img src="images/greenCircle.png">
-2.3. Read the account, which is absent in PostgreSQL. 
-</P>
-<IMG src="images/MermaidSequenceDiagram3.png" height="925" width="1000"/>
-
 <P>
 The REST endpoint method 
 <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/resources/AccountResource.java#L65">
-kp.resources.AccountResource::readAccount</a> reads account data from PostgreSQL database.
+kp.resources.AccountResource::readAccount</a> first reads account data from PostgreSQL database.
+If account is absent in PostgreSQL database, then the account is read from MongoDB. 
 </P>
 
 <P>
@@ -161,6 +156,11 @@ The service method for the PostgreSQL database
 <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/services/AccountPostgresService.java#L68">
 kp.services.AccountPostgresService::createAccount</a> creates new PostgreSQL entity from existing MongoDB entity.
 </P>
+
+<P><img src="images/greenCircle.png">
+2.3. Read the account, which is absent in PostgreSQL. 
+</P>
+<IMG src="images/MermaidSequenceDiagram3.png" height="925" width="1000"/>
 
 <P><img src="images/greenCircle.png">
 2.4. The REST endpoint. The web resources were placed in directory 
