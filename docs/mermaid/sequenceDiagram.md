@@ -33,7 +33,7 @@ deactivate KC
 sequenceDiagram
 autonumber
 box cornsilk 
- participant CC as Curl<br/>Client
+ participant EC as Endpoint<br/>Client
 end
 box honeydew <br/>Quarcus Server
  participant AR as Account<br/>Resource
@@ -43,8 +43,8 @@ box bisque
  participant PDB as PostgreSQL<br/>Database
 end
 
-CC ->> AR: read<br/>account
-activate CC
+EC ->> AR: read<br/>account
+activate EC
 activate AR
 Note over AR,PDB: account is present in PostgreSQL
 AR ->> PS: find<br/>account
@@ -55,16 +55,16 @@ PDB ->> PS: return<br/>account
 deactivate PDB
 PS ->> AR: return<br/>account
 deactivate PS
-AR ->> CC: return<br/>account
+AR ->> EC: return<br/>account
 deactivate AR
-deactivate CC
+deactivate EC
 ```
 
 ```mermaid
 sequenceDiagram
 autonumber
 box cornsilk
- participant CC as Curl<br/>Client
+ participant EC as Endpoint<br/>Client
 end
 box honeydew <br/>Quarcus Server
  participant AR as Account<br/>Resource
@@ -78,8 +78,8 @@ box bisque <br/>
  participant MDB as MongoDB<br/>Database
 end
 
-CC ->> AR: read<br/>account
-activate CC
+EC ->> AR: read<br/>account
+activate EC
 activate AR
 Note over AR,PDB: account is absent in PostgreSQL
 AR ->> PS: find<br/>account
@@ -109,7 +109,7 @@ activate PDB
 deactivate PDB
 PS ->> AR: return<br/>account
 deactivate PS
-AR ->> CC: return<br/>account
+AR ->> EC: return<br/>account
 deactivate AR
-deactivate CC
+deactivate EC
 ```

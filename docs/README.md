@@ -114,13 +114,13 @@ with batch file <I>"07 start Docker Quarkus.bat"</I>.
 <img src="images/orangeHR-500.png"></P>
 
 <P>Sequence Diagram 1
-<IMG src="images/MermaidSequenceDiagram1.png" height="50" width="800"/>
+<IMG src="images/MermaidSequenceDiagram1.png" height="560" width="885"/>
 </P>
 <P>Sequence Diagram 2
-<IMG src="images/MermaidSequenceDiagram2.png" height="50" width="800"/>
+<IMG src="images/MermaidSequenceDiagram2.png" height="615" width="810"/>
 </P>
 <P>Sequence Diagram 3
-<IMG src="images/MermaidSequenceDiagram3.png" height="50" width="800"/>
+<IMG src="images/MermaidSequenceDiagram3.png" height="925" width="1000"/>
 </P>
 
 <P><img src="images/greenCircle.png">
