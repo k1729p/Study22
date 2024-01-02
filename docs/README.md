@@ -17,15 +17,10 @@ Topics: Kubernetes ● Docker ● Quarkus ● Kafka ● MongoDB ● PostgreSQL
 The Account Receiver is implemented as a Quarkus application with Kafka consumer and REST endpoints.
 </P>
 <P>
-The big Kafka record lists are fast consumed and stored in the MongoDB document database. 
+Big Kafka record lists are fast consumed and stored in the MongoDB document database. 
 <IMG src="images/MermaidFlowchart2.png" height="75" width="485"/><br>
 <img src="images/blackArrowUp.png">
-<I>The data caching strategy implemented in Account Receiver.</I>
-</P>
-<P>
-<IMG src="images/MermaidFlowchart3.png" height="135" width="325"/><br>
-<img src="images/blackArrowUp.png">
-<I>The Account Sender generates accounts and feeds them to Kafka broker.</I>
+<I>The data caching strategy implemented in the Account Receiver.</I>
 </P>
 
 <HR/>
@@ -215,6 +210,11 @@ For delivering the accounts to Kafka Broker it is responsible the sender applica
 <a href="#top">Back to the top of the page</a>
 <HR/>
 <H3 id="THREE">❸ Account Sender</H3>
+<P>
+<IMG src="images/MermaidFlowchart3.png" height="135" width="325"/><br>
+<img src="images/blackArrowUp.png">
+<I>The Account Sender generates accounts and feeds them to the Kafka broker.</I>
+</P>
 
 <P>
 <img src="images/greenCircle.png">The Java application with Kafka producer running in endless loop. 
