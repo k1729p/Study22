@@ -135,10 +135,8 @@ The Account Receiver <a href="https://github.com/k1729p/Study22/blob/main/accoun
 <I>The screenshot of the home page.</I>
 </P>
 <P>
-The Swagger UI page <a href="images/ScreenshotSwaggerUI.png">screenshot</a>
-</P>
-<P>
-The OpenAPI document page <a href="images/ScreenshotOpenAPI.png">screenshot</a>
+The Swagger UI page <a href="images/ScreenshotSwaggerUI.png">screenshot</a>. 
+The OpenAPI document page <a href="images/ScreenshotOpenApiJson.png">screenshot</a>.
 </P>
 
 <P><img src="images/greenCircle.png">
