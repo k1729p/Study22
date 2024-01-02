@@ -14,10 +14,11 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import kp.sender.models.models.Account;
 
 /**
- * The serializer for the {@link Account}
+ * The {@link Serializer} implementation for the {@link Account}
  */
 public class AccountSerializer implements Serializer<Account> {
 	private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass().getName());
+
 	private final ObjectMapper objectMapper = JsonMapper.builder().addModule(new JavaTimeModule()).build();
 
 	/**

@@ -6,19 +6,26 @@
 <BODY>
 <a href="../../../tree/main/docs"><IMG src="images/ColorScheme.png" height="25" width="800"/></a>
 <H2 id="contents">Study22 README Contents</H2>
-<H3>Research Kubernetes and Quarkus</H3>
+<H3>Research the Kubernetes and the Quarkus</H3>
+<IMG src="images/MermaidFlowchart1.png" height="410" width="420"/><br>
 <P>
 The <a href="https://kubernetes.io/docs/home/">Kubernetes</a> is a container-orchestration system
 for automating container deployment, scaling, and management.<br/>
 The <a href="https://quarkus.io">Quarkus</a> is a Java framework tailored for deployment on Kubernetes.<br/>
-</P>
-<IMG src="images/MermaidFlowchart.png" height="25" width="25"/>
-
-<P>
 The <a href="https://quarkus.io/guides/hibernate-orm-panache">Panache</a>
 is a Quarkus-specific library for the development of the Hibernate-based persistence layer. It is similar to Spring Data JPA.<br/>
 For running the local Kubernetes cluster in Docker container it is used <a href="https://kind.sigs.k8s.io/">kind</a> ('Kubernetes in Docker').<br/>
 The Kubernetes images for Kafka, MongoDB, and PostgreSQL are from from <a href="https://github.com/bitnami/containers">Bitnami Images</a>.
+</P>
+<P>
+<IMG src="images/MermaidFlowchart2.png" height="75" width="485"/><br>
+<img src="images/blackArrowUp.png">
+<I>The data caching strategy implemented in Account Receiver.</I>
+</P>
+<P>
+<IMG src="images/MermaidFlowchart3.png" height="135" width="325"/><br>
+<img src="images/blackArrowUp.png">
+<I>The Account Sender generates accounts and feeds them to Kafka broker.</I>
 </P>
 
 <P>
@@ -71,7 +78,6 @@ Java source code. Packages:<br>
 
 <P>Action:<br>
 <img src="images/orangeHR-500.png"><br>
-
 <img src="images/orangeSquare.png"> 1. With batch file
 <a href="https://github.com/k1729p/Study22/blob/main/0_batch/01%20Docker%20run%20Kafka%20MongoDB%20PostgreSQL.bat">
 <I>"01 Docker run Kafka MongoDB PostgreSQL.bat"</I></a> create and run Docker containers<br>
@@ -96,7 +102,6 @@ It builds the Quarkus native image.<br>
 <a href="https://github.com/k1729p/Study22/blob/main/0_batch/06%20CURL%20call%20Quarkus.bat">
 <I>"06 CURL call Quarkus.bat"</I></a>
 call the "read account by name" endpoint on Quarkus server.<br>
-
 <img src="images/orangeSquare.png"> 7. With batch file
 <a href="https://github.com/k1729p/Study22/blob/main/0_batch/07%20start%20Docker%20Quarkus.bat">
 <I>"07 start Docker Quarkus.bat"</I></a>
@@ -104,17 +109,32 @@ restart the Docker container with the receiver application.<br>
 <img src="images/orangeSquare.png"><img src="images/spacer-32.png">Before this starter batch execution the application should not run.<br>
 <img src="images/orangeHR-500.png"></P>
 
+<P><img src="images/greenCircle.png">
+1.1. The Docker configuration files are in directory:
+<a href="https://github.com/k1729p/Study22/tree/main/docker-config">docker-config</a>
+</P>
+
+<P><img src="images/greenCircle.png">
+1.2. The Kubernetes configuration files are in directory:
+<a href="https://github.com/k1729p/Study22/tree/main/kubernetes-config">kubernetes-config</a>
+</P>
+
 <a href="#top">Back to the top of the page</a>
 <HR/>
 <H3 id="TWO">❷ Account Receiver</H3>
 
-<P>
-The Docker configuration files are in directory:
-<a href="https://github.com/k1729p/Study22/tree/main/docker-config">docker-config</a>
+<P><img src="images/greenCircle.png">
+2.1. The web resources were placed at <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/resources/META-INF/resources"
+>'src/main/resources/META-INF/resources'</a>.
+They are served at <a href="http://localhost:8080/">http://localhost:8080/</a> (under the root context).<br>
+The <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/resources/META-INF/resources/index.html"
+>home page</a>.<br>
+<IMG src="images/ScreenshotHomePage.png" height="30" width="50"/><BR>
+<img src="images/blackArrowUp.png">
+<I>The screenshot of the home page.</I>
 </P>
 <P>
-The Kubernetes configuration files are in directory:
-<a href="https://github.com/k1729p/Study22/tree/main/kubernetes-config">kubernetes-config</a>
+The <b>Swagger UI</b> page <a href="images/SwaggerUIScreenshot.png">screenshot</a>
 </P>
 
 <P>
@@ -140,18 +160,33 @@ The REST endpoint method
 <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/resources/AccountResource.java#L65">
 kp.resources.AccountResource::readAccount</a> reads account data from PostgreSQL database.
 </P>
-The Docker containers <a href="images/ScreenshotDockerContainers.png">screenshot</a>
+The <a href="images/ScreenshotDockerContainers.png">screenshot</a> of the created Docker containers.
 </P>
 
-<P><img src="images/greenCircle.png">
-2.1. The <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/resources/META-INF/resources/index.html">home page</a>.<br>
-
-<IMG src="images/ScreenshotHomePage.png" height="30" width="50"/><BR>
-<img src="images/blackArrowUp.png">
-<I>The screenshot of the home page.</I>
+<P>
+The Kubernetes pod <b>study22-acc-sender</b> <a href="images/AccountSender.png">log screenshot</a>.
 </P>
 <P>
-The <b>Swagger UI</b> page <a href="images/SwaggerUIScreenshot.png">screenshot</a>
+The Kubernetes pod <b>study22-acc-receiver</b> <a href="images/AccountReceiverStart.png">screenshot</a> for the Quarkus start.
+</P>
+
+<P>
+The Kubernetes pod <b>study22-acc-receiver</b> <a href="images/AccountReceiverProcessPayload.png">screenshot</a>
+for the Kafka records payload processing.<br>
+From consumed Kafka records were created the account entities. Then they were persited in the MongoDB database.
+</P>
+
+
+
+<P>
+The console log fragments from the run of the batch file <b>"06 CURL call Quarkus.bat"</b><br>
+The console log <a href="images/CURLreadAccounts.png">screenshot</a> from the 'read account' endpoint calls<br>
+The console log <a href="images/CURLdeleteAccounts.png">screenshot</a> from the 'delete accounts' endpoint call 
+</P>
+<P>
+The Kubernetes pod <b>study22-acc-receiver</b> <a href="images/AccountReceiverReadAccount.png">screenshot</a>
+for the account reading.<br>
+REST endpoint.
 </P>
 
 <P><img src="images/greenCircle.png">

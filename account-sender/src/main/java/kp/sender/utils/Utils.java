@@ -44,15 +44,18 @@ public class Utils {
 	}
 
 	/**
-	 * Generates the names.
+	 * Generates the names used in account.
 	 *
 	 * @return the generated names list
 	 */
 	public static List<String> generateNames() {
 
 		final List<String> nameList = new ArrayList<>();
-		CHAR_SUP.get().forEach(str1 -> CHAR_SUP.get().forEach(str2 -> CHAR_SUP.get().forEach(str3 -> CHAR_SUP.get()
-				.forEach(str4 -> nameList.add(String.format("%s-%s-%s-%s", str1, str2, str3, str4))))));
+		CHAR_SUP.get().forEach(//
+				str1 -> CHAR_SUP.get().forEach(//
+						str2 -> CHAR_SUP.get().forEach(//
+								str3 -> CHAR_SUP.get().forEach(//
+										str4 -> nameList.add(String.format("%s-%s-%s-%s", str1, str2, str3, str4))))));
 		return nameList;
 	}
 

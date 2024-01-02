@@ -24,7 +24,7 @@ public final class Constants {
 	 * The JAAS login context parameters for SASL connections.
 	 */
 	public static final BinaryOperator<String> JAAS_LOGIN_CONTEXT_PARAMS = (username, password) -> String.format(
-			"org.apache.kafka.common.security.scram.ScramLoginModule required username='%s' password='%s';",
+			"org.apache.kafka.common.security.scram.ScramLoginModule required username='%s' password='%s';", //
 			username, password);
 	/**
 	 * The Kafka producer topic for the accounts.
@@ -41,7 +41,8 @@ public final class Constants {
 	/**
 	 * The character supplier for the name generator.
 	 */
-	public static final Supplier<Stream<String>> CHAR_SUP = () -> Arrays.stream("abcdefghijklmnopqrstuvwxyz".split(""));
+	public static final Supplier<Stream<String>> CHAR_SUP = //
+			() -> Arrays.stream("abcdefghijklmnopqrstuvwxyz".split(""));
 	/**
 	 * The account creator function.
 	 */

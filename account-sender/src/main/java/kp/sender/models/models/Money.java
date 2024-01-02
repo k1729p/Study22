@@ -3,7 +3,7 @@ package kp.sender.models.models;
 import java.math.BigDecimal;
 
 /**
- * The money.
+ * The money in account.
  *
  * @param amount   the amount
  * @param currency the currency

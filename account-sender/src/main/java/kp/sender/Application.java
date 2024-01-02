@@ -23,7 +23,8 @@ public class Application {
 	 */
 	public static void main(String[] args) {
 
-		final String selection = Optional.ofNullable(args).filter(arr -> arr.length > 0).map(arr -> arr[0]).orElse("");
+		final String selection = Optional.ofNullable(args).filter(arr -> arr.length > 0)//
+				.map(arr -> arr[0]).orElse("");
 		final AccountProducer accountProducer = new AccountProducer(Utils.createConfiguration(selection));
 		do {
 			accountProducer.produceRecords();

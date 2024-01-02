@@ -19,7 +19,7 @@ import kp.sender.models.models.Account;
 import kp.sender.utils.Utils;
 
 /**
- * The account producer.
+ * The {@link Account} producer.
  * <p>
  * Sends the {@link ProducerRecord}s with the {@link KafkaProducer}.
  */
@@ -51,8 +51,8 @@ public class AccountProducer {
 					.forEach(producer::send);
 		}
 		if (logger.isInfoEnabled()) {
-			logger.info("produceRecords(): count[{}], first[{}], last[{}]", LAST_INDEX + 1, NAMES_LIST.getFirst(),
-					NAMES_LIST.get(LAST_INDEX));
+			logger.info("produceRecords(): count[{}], first[{}], last[{}]", //
+					LAST_INDEX + 1, NAMES_LIST.getFirst(), NAMES_LIST.get(LAST_INDEX));
 		}
 	}
 

@@ -9,9 +9,9 @@ import java.util.List;
  * @param name      the name
  * @param number    the number
  * @param status    the {@link Status}
- * @param createdAt the created at date-time
- * @param owners    the list of owners
- * @param money     the money
+ * @param createdAt the created at {@link LocalDateTime}
+ * @param owners    the list of {@link Owner}s
+ * @param money     the {@link Money}
  */
 public record Account(String name, long number, Status status, LocalDateTime createdAt, List<Owner> owners,
 		Money money) {

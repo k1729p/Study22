@@ -5,27 +5,25 @@ box mistyrose
  participant KB as Kafka<br/>Broker
 end
 box honeydew <br/>Quarcus
- participant KC as Account<br/>Consumer
- participant MS as Account<br/>MongoDB Service
+ participant KC as Account<br>Consumer
+ participant MS as Account<br>MongoDB<br>Service
 end
 box bisque
  participant MDB as MongoDB<br/>Database
 end
 
 Note over KB,MDB: consume accounts from Kafka and persist them in MongoDB
-KB ->> KC: consume records
+KB ->> KC: consume<br>records
 activate KC
 loop process payload
-   KC ->> MS: create account
+   KC ->> MS: create<br>account
    activate MS
-   opt no record key in database
-   MS ->> MDB: persist record key
+   MS ->> MDB: persist<br>record key
    activate MDB
    deactivate MDB
-   MS ->> MDB: persist entity
+   MS ->> MDB: persist<br>account entity
    activate MDB
    deactivate MDB
-   end
    deactivate MS
 end
 deactivate KC
