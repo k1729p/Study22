@@ -110,21 +110,60 @@ with batch file <I>"07 start Docker Quarkus.bat"</I>.
  <a href="https://github.com/k1729p/Study22/blob/main/0_batch/07%20start%20Docker%20Quarkus.bat">
  <I>"07 start Docker Quarkus.bat"</I></a>
  start the Docker container with the Account Receiver application.<br>
-<img src="images/orangeSquare.png"><img src="images/spacer-32.png">Before this batch execution the application should not run.<br>
+<img src="images/orangeSquare.png"><img src="images/spacer-32.png">Before this batch execution the Account Receiver should be stopped.<br>
 <img src="images/orangeHR-500.png"></P>
 
-<P>Sequence Diagram 1
+<P><img src="images/greenCircle.png">
+2.1. Consume the accounts from Kafka and persist them in MongoDB.
+</P>
 <IMG src="images/MermaidSequenceDiagram1.png" height="560" width="885"/>
+
+<P>
+The consumer method for Kafka record 
+<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/kafka/consumers/AccountConsumer.java#L47">
+kp.kafka.consumers.AccountConsumer::consume</a> consumes Kafka records.
 </P>
-<P>Sequence Diagram 2
-<IMG src="images/MermaidSequenceDiagram2.png" height="615" width="810"/>
-</P>
-<P>Sequence Diagram 3
-<IMG src="images/MermaidSequenceDiagram3.png" height="925" width="1000"/>
+
+<P>
+The lists with Kafka records are consumed in the AccountConsumer class.<br>
+The payload with JSON content is deserialized and persisted as a Account entity in MongoDB database.<br>
+<br>
 </P>
 
 <P><img src="images/greenCircle.png">
-2.1. The web resources were placed in directory 
+2.2. Read the account, which is absent in PostgreSQL. 
+</P>
+<IMG src="images/MermaidSequenceDiagram2.png" height="615" width="810"/>
+<P>
+The GET endpoint in AccountResource class reads account by name from PostgreSQL database.<br>
+If entity is absent in PostgreSQL database, then it is read from MongoDB database and added as a new entity to PostgreSQL database.<br>
+</P>
+
+<P><img src="images/greenCircle.png">
+2.3. Read the account, which is absent in PostgreSQL. 
+</P>
+<IMG src="images/MermaidSequenceDiagram3.png" height="925" width="1000"/>
+
+<P>
+The REST endpoint method 
+<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/resources/AccountResource.java#L65">
+kp.resources.AccountResource::readAccount</a> reads account data from PostgreSQL database.
+</P>
+
+<P>
+The service method for the MongoDB database 
+<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/services/AccountMongoService.java#L54">
+kp.services.AccountMongoService::processPayload</a> creates MongoDB entity from Kafka record payload.
+</P>
+
+<P>
+The service method for the PostgreSQL database 
+<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/services/AccountPostgresService.java#L68">
+kp.services.AccountPostgresService::createAccount</a> creates new PostgreSQL entity from existing MongoDB entity.
+</P>
+
+<P><img src="images/greenCircle.png">
+2.4. The REST endpoint. The web resources were placed in directory 
 <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/resources/META-INF/resources"
 >'src/main/resources/META-INF/resources'</a>.
 </P>
@@ -147,8 +186,7 @@ The Swagger UI page <a href="images/ScreenshotSwaggerUI.png">screenshot</a>.
 The OpenAPI document page <a href="images/ScreenshotOpenApiJson.png">screenshot</a>.
 </P>
 
-<P><img src="images/greenCircle.png">
-2.2. Reading the account with given name.
+<P>Reading the account with given name.
 <P>
 <IMG src="images/EndpointReadAccount.png" height="320" width="305"/><BR>
 <img src="images/blackArrowUp.png">
@@ -156,22 +194,6 @@ The OpenAPI document page <a href="images/ScreenshotOpenApiJson.png">screenshot<
 </P>
 
 <P>
-The service method for the MongoDB database 
-<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/services/AccountMongoService.java#L54">
-kp.services.AccountMongoService::processPayload</a> creates MongoDB entity from Kafka record payload.
-</P>
-
-<P>
-The service method for the PostgreSQL database 
-<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/services/AccountPostgresService.java#L68">
-kp.services.AccountPostgresService::createAccount</a> creates new PostgreSQL entity from existing MongoDB entity.
-</P>
-
-<P>
-The REST endpoint method 
-<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/resources/AccountResource.java#L65">
-kp.resources.AccountResource::readAccount</a> reads account data from PostgreSQL database.
-</P>
 The <a href="images/ScreenshotDockerContainers.png">screenshot</a> of the created Docker containers.
 </P>
 
@@ -188,35 +210,11 @@ for the Kafka records payload processing.<br>
 From consumed Kafka records were created the account entities. Then they were persited in the MongoDB database.
 </P>
 
-
-
 <P>
 The Kubernetes pod <b>study22-acc-receiver</b> <a href="images/AccountReceiverReadAccount.png">screenshot</a>
 for the account reading.<br>
 REST endpoint.
 </P>
-
-<P><img src="images/greenCircle.png">
-2.2. CONSUMER CONSUMER CONSUMER CONSUMER CONSUMER CONSUMER 
-</P>
-
-<P>
-The consumer method for Kafka record 
-<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/kafka/consumers/AccountConsumer.java#L47">
-kp.kafka.consumers.AccountConsumer::consume</a> consumes Kafka records.
-</P>
-
-<P>
-The lists with Kafka records are consumed in the AccountConsumer class.<br>
-The payload with JSON content is deserialized and persisted as a Account entity in MongoDB database.<br>
-<br>
-The GET endpoint in AccountResource class reads account by name from PostgreSQL database.<br>
-If entity is absent in PostgreSQL database, then it is read from MongoDB database and added as a new entity to PostgreSQL database.<br>
-<br>
-For delivering the accounts to Kafka Broker it is responsible the sender application.<br>
-</P>
-
-
 
 <a href="#top">Back to the top of the page</a>
 <HR/>
@@ -225,6 +223,9 @@ For delivering the accounts to Kafka Broker it is responsible the sender applica
 <IMG src="images/MermaidFlowchart3.png" height="135" width="325"/><br>
 <img src="images/blackArrowUp.png">
 <I>The Account Sender generates accounts and feeds them to the Kafka broker.</I>
+</P>
+<P>
+For delivering the accounts to Kafka Broker it is responsible the sender application.<br>
 </P>
 
 <P>

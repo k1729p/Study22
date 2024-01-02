@@ -32,37 +32,6 @@ deactivate KC
 ```mermaid
 sequenceDiagram
 autonumber
-box cornsilk 
- participant EC as Endpoint<br/>Client
-end
-box honeydew <br/>Quarcus Server
- participant AR as Account<br/>Resource
- participant PS as Account<br/>PostgreSQL<br/>Service
-end
-box bisque
- participant PDB as PostgreSQL<br/>Database
-end
-
-EC ->> AR: read<br/>account
-activate EC
-activate AR
-Note over AR,PDB: account is present in PostgreSQL
-AR ->> PS: find<br/>account
-activate PS
-PS ->> PDB: find<br/>by name
-activate PDB
-PDB ->> PS: return<br/>account
-deactivate PDB
-PS ->> AR: return<br/>account
-deactivate PS
-AR ->> EC: return<br/>account
-deactivate AR
-deactivate EC
-```
-
-```mermaid
-sequenceDiagram
-autonumber
 box cornsilk
  participant EC as Endpoint<br/>Client
 end
@@ -106,6 +75,37 @@ AR ->> PS: create<br/>account
 activate PS
 PS ->> PDB: persist<br/>entity
 activate PDB
+deactivate PDB
+PS ->> AR: return<br/>account
+deactivate PS
+AR ->> EC: return<br/>account
+deactivate AR
+deactivate EC
+```
+
+```mermaid
+sequenceDiagram
+autonumber
+box cornsilk 
+ participant EC as Endpoint<br/>Client
+end
+box honeydew <br/>Quarcus Server
+ participant AR as Account<br/>Resource
+ participant PS as Account<br/>PostgreSQL<br/>Service
+end
+box bisque
+ participant PDB as PostgreSQL<br/>Database
+end
+
+EC ->> AR: read<br/>account
+activate EC
+activate AR
+Note over AR,PDB: account is present in PostgreSQL
+AR ->> PS: find<br/>account
+activate PS
+PS ->> PDB: find<br/>by name
+activate PDB
+PDB ->> PS: return<br/>account
 deactivate PDB
 PS ->> AR: return<br/>account
 deactivate PS
