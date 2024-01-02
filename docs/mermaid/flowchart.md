@@ -1,6 +1,6 @@
 ```mermaid
 flowchart TB
-CU["Curl<br>client"]
+CU["Account Receiver clients"]
 subgraph " "
   QU["Quarkus<br>application"]:::orangeBox
   KA(("Kafka<br>broker")):::yellowBox

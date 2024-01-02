@@ -12,7 +12,8 @@ Topics: Kubernetes ● Docker ● Quarkus ● Kafka ● MongoDB ● PostgreSQL
 </P>
 
 <H3>Research the Kubernetes and the Quarkus</H3>
-<IMG src="images/MermaidFlowchart1.png" height="410" width="420"/>
+<IMG src="images/MermaidFlowchart1.png" height="400" width="430"/>
+
 <P>
 The Account Receiver is implemented as a Quarkus application with Kafka consumer and REST endpoints.
 </P>
@@ -111,6 +112,16 @@ with batch file <I>"07 start Docker Quarkus.bat"</I>.
  start the Docker container with the Account Receiver application.<br>
 <img src="images/orangeSquare.png"><img src="images/spacer-32.png">Before this batch execution the application should not run.<br>
 <img src="images/orangeHR-500.png"></P>
+
+<P>Sequence Diagram 1
+<IMG src="images/MermaidSequenceDiagram1.png" height="50" width="800"/>
+</P>
+<P>Sequence Diagram 2
+<IMG src="images/MermaidSequenceDiagram2.png" height="50" width="800"/>
+</P>
+<P>Sequence Diagram 3
+<IMG src="images/MermaidSequenceDiagram3.png" height="50" width="800"/>
+</P>
 
 <P><img src="images/greenCircle.png">
 2.1. The web resources were placed in directory 
@@ -237,8 +248,8 @@ kp.sender.kafka.producers.AccountProducer::produceRecords</a> produces Kafka rec
  call the endpoints on Quarkus server.<br>
 <img src="images/orangeHR-500.png"></P>
 
-<P><img src="images/greenCircle.png"> 4.1. This batch calls the 'read account' endpoint and optionally the 'delete accounts' endpoint. 
-The endpoint 'delete accounts' deletes all data from all databases.<br/>
+<P><img src="images/greenCircle.png"> 4.1. This batch calls the 'read account' endpoint and optionally the 'delete accounts' endpoint.
+The endpoint 'delete accounts' deletes all data from all databases.
 As a result of that action the Account Receiver repeats consuming and processing the Kafka records.
 </P>
 <P>
