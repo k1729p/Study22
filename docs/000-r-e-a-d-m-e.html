@@ -133,7 +133,7 @@ The payload with JSON content is deserialized and persisted as a Account entity 
 <P><img src="images/greenCircle.png">
 2.2. Read the account, which is absent in PostgreSQL. 
 </P>
-<IMG src="images/MermaidSequenceDiagram2.png" height="615" width="810"/>
+<IMG src="images/MermaidSequenceDiagram2.png" height="925" width="1000"/>
 <P>
 The GET endpoint in AccountResource class reads account by name from PostgreSQL database.<br>
 If entity is absent in PostgreSQL database, then it is read from MongoDB database and added as a new entity to PostgreSQL database.<br>
@@ -160,7 +160,7 @@ kp.services.AccountPostgresService::createAccount</a> creates new PostgreSQL ent
 <P><img src="images/greenCircle.png">
 2.3. Read the account, which is absent in PostgreSQL. 
 </P>
-<IMG src="images/MermaidSequenceDiagram3.png" height="925" width="1000"/>
+<IMG src="images/MermaidSequenceDiagram3.png" height="615" width="810"/>
 
 <P><img src="images/greenCircle.png">
 2.4. The REST endpoint. The web resources were placed in directory 
