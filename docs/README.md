@@ -12,10 +12,12 @@ Topics: Kubernetes ● Docker ● Quarkus ● Kafka ● MongoDB ● PostgreSQL
 </P>
 
 <H3>Research the Kubernetes and the Quarkus</H3>
-<IMG src="images/MermaidFlowchart1.png" height="410" width="420"/><br>
+<IMG src="images/MermaidFlowchart1.png" height="410" width="420"/>
 <P>
 The Account Receiver is implemented as a Quarkus application with Kafka consumer and REST endpoints.
-The MongoDB database is used for fast consuming of the big lists with Kafka records. 
+</P>
+<P>
+The big Kafka record lists are fast consumed and stored in the MongoDB document database. 
 <IMG src="images/MermaidFlowchart2.png" height="75" width="485"/><br>
 <img src="images/blackArrowUp.png">
 <I>The data caching strategy implemented in Account Receiver.</I>
@@ -257,7 +259,7 @@ As a result of that action the Account Receiver repeats consuming and processing
 <tr><td style="border:solid"><b><a href="https://kubernetes.io/docs/home/">Kubernetes</a></b></td>
    <td style="border:solid">container-orchestration system for automating container deployment, scaling, and management</td></tr>
 <tr><td style="border:solid"><b><a href="https://kind.sigs.k8s.io/">kind</a></b></td>
-   <td style="border:solid">('Kubernetes in Docker') tool for running the local Kubernetes cluster in Docker container</td></tr>
+   <td style="border:solid">tool for running the local Kubernetes cluster in Docker container<br/>('Kubernetes in Docker')</td></tr>
 <tr><td style="border:solid"><b><a href="https://github.com/bitnami/containers">Bitnami Images</a></b></td>
    <td style="border:solid">source of the Kubernetes images used in this project</td></tr>
 </tbody>
