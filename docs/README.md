@@ -6,17 +6,13 @@
 <BODY>
 <a href="../../../tree/main/docs"><IMG src="images/ColorScheme.png" height="25" width="800"/></a>
 <H2 id="contents">Study22 README Contents</H2>
+
+<P>
+Topics: Kubernetes ● Docker ● Quarkus ● Kafka ● MongoDB ● PostgreSQL
+</P>
+
 <H3>Research the Kubernetes and the Quarkus</H3>
 <IMG src="images/MermaidFlowchart1.png" height="410" width="420"/><br>
-<P>
-The <a href="https://kubernetes.io/docs/home/">Kubernetes</a> is a container-orchestration system
-for automating container deployment, scaling, and management.<br/>
-The <a href="https://quarkus.io">Quarkus</a> is a Java framework tailored for deployment on Kubernetes.<br/>
-The <a href="https://quarkus.io/guides/hibernate-orm-panache">Panache</a>
-is a Quarkus-specific library for the development of the Hibernate-based persistence layer. It is similar to Spring Data JPA.<br/>
-For running the local Kubernetes cluster in Docker container it is used <a href="https://kind.sigs.k8s.io/">kind</a> ('Kubernetes in Docker').<br/>
-The Kubernetes images for Kafka, MongoDB, and PostgreSQL are from from <a href="https://github.com/bitnami/containers">Bitnami Images</a>.
-</P>
 <P>
 The Account Receiver is implemented as a Quarkus application with Kafka consumer and REST endpoints.
 The MongoDB database is used for fast consuming of the big lists with Kafka records. 
@@ -38,6 +34,7 @@ The sections of this project:
 <LI><a href="#ONE"><b>Docker and Kubernetes Build</b></a></LI>
 <LI><a href="#TWO"><b>Account Receiver</b></a></LI>
 <LI><a href="#THREE"><b>Account Sender</b></a></LI>
+<LI><a href="#FOUR"><b>Curl Client</b></a></LI>
 </OL>
 </P>
 
@@ -92,15 +89,6 @@ It builds the Quarkus native image.<br>
 <img src="images/orangeSquare.png"> 5. With batch file
 <a href="https://github.com/k1729p/Study22/blob/main/0_batch/05%20show%20Kubernetes%20logs.bat">
 <I>"05 show Kubernetes logs.bat"</I></a> show a log tail for a broker, databases and applications.<br>
-<img src="images/orangeSquare.png"> 6. With batch file
-<a href="https://github.com/k1729p/Study22/blob/main/0_batch/06%20CURL%20call%20Quarkus.bat">
-<I>"06 CURL call Quarkus.bat"</I></a>
-call the "read account by name" endpoint on Quarkus server.<br>
-<img src="images/orangeSquare.png"> 7. With batch file
-<a href="https://github.com/k1729p/Study22/blob/main/0_batch/07%20start%20Docker%20Quarkus.bat">
-<I>"07 start Docker Quarkus.bat"</I></a>
-restart the Docker container with the receiver application.<br>
-<img src="images/orangeSquare.png"><img src="images/spacer-32.png">Before this starter batch execution the application should not run.<br>
 <img src="images/orangeHR-500.png"></P>
 
 <P><img src="images/greenCircle.png">
@@ -116,16 +104,28 @@ restart the Docker container with the receiver application.<br>
 <a href="#top">Back to the top of the page</a>
 <HR/>
 <H3 id="TWO">❷ Account Receiver</H3>
+The Docker container with Account Receiver application could be started directly in <b>docker desktop</b> containerization tool or
+with batch file <I>"07 start Docker Quarkus.bat"</I>.
+<P>Action:<br>
+<img src="images/orangeHR-500.png"><br>
+<img src="images/orangeSquare.png"> 1. With batch file
+ <a href="https://github.com/k1729p/Study22/blob/main/0_batch/07%20start%20Docker%20Quarkus.bat">
+ <I>"07 start Docker Quarkus.bat"</I></a>
+ start the Docker container with the Account Receiver application.<br>
+<img src="images/orangeSquare.png"><img src="images/spacer-32.png">Before this batch execution the application should not run.<br>
+<img src="images/orangeHR-500.png"></P>
+
 <P><img src="images/greenCircle.png">
-2.1. The web resources were placed at <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/resources/META-INF/resources"
+2.1. The web resources were placed in directory 
+<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/resources/META-INF/resources"
 >'src/main/resources/META-INF/resources'</a>.
 </P>
 <P>
 The Account Receiver <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/resources/META-INF/resources/index.html"
 >home page</a>:
 <UL>
-<LI>on Kubernetes it is at <a href="http://localhost:32123/">http://localhost:32123/</a></LI>
-<LI>on Docker it is at <a href="http://localhost:8080/">http://localhost:8080/</a></LI>
+<LI>on Kubernetes - <a href="http://localhost:32123/">http://localhost:32123/</a></LI>
+<LI>on Docker - <a href="http://localhost:8080/">http://localhost:8080/</a></LI>
 </UL>
 </P>
 
@@ -140,7 +140,7 @@ The OpenAPI document page <a href="images/ScreenshotOpenApiJson.png">screenshot<
 </P>
 
 <P><img src="images/greenCircle.png">
-2.2. Reading the account by name.
+2.2. Reading the account with given name.
 <P>
 <IMG src="images/EndpointReadAccount.png" height="320" width="305"/><BR>
 <img src="images/blackArrowUp.png">
@@ -208,11 +208,6 @@ If entity is absent in PostgreSQL database, then it is read from MongoDB databas
 For delivering the accounts to Kafka Broker it is responsible the sender application.<br>
 </P>
 
-<P>
-<IMG src="images/CURLdeleteAccounts.png" height="50" width="200"/><BR>
-<img src="images/blackArrowUp.png">
-<I>The result from the 'Delete accounts.</I>
-</P>
 
 
 <a href="#top">Back to the top of the page</a>
@@ -228,6 +223,45 @@ The producer method:
 kp.sender.kafka.producers.AccountProducer::produceRecords</a> produces Kafka records.
 </P>
 
+<a href="#top">Back to the top of the page</a>
+<HR/>
+<H3 id="FOUR">❹ Curl Client</H3>
+
+<P>Action:<br>
+<img src="images/orangeHR-500.png"><br>
+<img src="images/orangeSquare.png"> 1. With batch file
+ <a href="https://github.com/k1729p/Study22/blob/main/0_batch/06%20CURL%20call%20Quarkus.bat">
+ <I>"06 CURL call Quarkus.bat"</I></a>
+ call the endpoints on Quarkus server.<br>
+<img src="images/orangeHR-500.png"></P>
+
+<P><img src="images/greenCircle.png"> 4.1. This batch calls the 'read account' endpoint and optionally the 'delete accounts' endpoint. 
+The endpoint 'delete accounts' deletes all data from all databases.<br/>
+As a result of that action the Account Receiver repeats consuming and processing the Kafka records.
+</P>
+<P>
+<IMG src="images/CURLdeleteAccounts.png" height="50" width="200"/><BR>
+<img src="images/blackArrowUp.png">
+<I>The result from the 'delete accounts' endpoint.</I>
+</P>
+
+<a href="#top">Back to the top of the page</a>
+<HR/>
+<h3>Dictionary</h3>
+<table style="border:solid">
+<tbody>
+<tr><td style="border:solid"><b><a href="https://quarkus.io">Quarkus</a></b></td>
+   <td style="border:solid">Java framework tailored for deployment on Kubernetes</td></tr>
+<tr><td style="border:solid"><b><a href="https://quarkus.io/guides/hibernate-orm-panache">Panache</a></b></td>
+   <td style="border:solid">Quarkus-specific library for the development of the Hibernate-based persistence layer (similar to Spring Data JPA)</td></tr>
+<tr><td style="border:solid"><b><a href="https://kubernetes.io/docs/home/">Kubernetes</a></b></td>
+   <td style="border:solid">container-orchestration system for automating container deployment, scaling, and management</td></tr>
+<tr><td style="border:solid"><b><a href="https://kind.sigs.k8s.io/">kind</a></b></td>
+   <td style="border:solid">('Kubernetes in Docker') tool for running the local Kubernetes cluster in Docker container</td></tr>
+<tr><td style="border:solid"><b><a href="https://github.com/bitnami/containers">Bitnami Images</a></b></td>
+   <td style="border:solid">source of the Kubernetes images used in this project</td></tr>
+</tbody>
+</table>
 
 <a href="#top">Back to the top of the page</a>
 <HR/>
