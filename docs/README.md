@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<HTML>
+<HTML lang="en">
 <HEAD>
 	<META charset="UTF-8">
 </HEAD>
@@ -19,12 +19,12 @@ The Account Receiver is implemented as a Quarkus application with Kafka consumer
 </P>
 <P>
 Big list with Kafka records is fast consumed and stored in the document database MongoDB.<br/> 
-<IMG src="images/MermaidFlowchart2.png" height="75" width="485"/><br>
-<img src="images/blackArrowUp.png">
+<img src="images/MermaidFlowchart2.png" height="75" width="485" alt=""/><br>
+<img src="images/blackArrowUp.png" alt="">
 <I>The data caching strategy implemented in the Account Receiver.</I>
 </P>
 
-<HR/>
+<HR>
 
 <P>
 The sections of this project:
@@ -39,31 +39,31 @@ The sections of this project:
 
 <P>
 Java source code. Packages:<br>
-<img src="images/aquaHR-500.png"><br>
-<img src="images/aquaSquare.png">
+<img src="images/aquaHR-500.png" alt=""><br>
+<img src="images/aquaSquare.png" alt="">
     <i>project 'Study22-account-receiver', application sources</i>&nbsp;:&nbsp;
 	<a href="https://github.com/k1729p/Study22/tree/main/account-receiver/src/main/java/kp">kp</a><br>
-<img src="images/aquaSquare.png">
+<img src="images/aquaSquare.png" alt="">
     <i>project 'Study22-account-receiver', test sources</i>&nbsp;:&nbsp;
 	<a href="https://github.com/k1729p/Study22/tree/main/account-receiver/src/test/java/kp">kp</a><br>
-<img src="images/aquaSquare.png">
+<img src="images/aquaSquare.png" alt="">
     <i>project 'Study22-account-sender', application sources</i>&nbsp;:&nbsp;
 	<a href="https://github.com/k1729p/Study22/tree/main/account-sender/src/main/java/kp/sender">kp.sender</a><br>
-<img src="images/aquaHR-500.png">
+<img src="images/aquaHR-500.png" alt="">
 </P>
 
 <P>
-<img src="images/yellowHR-500.png"><br>
-<img src="images/yellowSquare.png">
+<img src="images/yellowHR-500.png" alt=""><br>
+<img src="images/yellowSquare.png" alt="">
     <i>project 'Study22'</i>&nbsp;:&nbsp;
     <a href="http://htmlpreview.github.io/?https://github.com/k1729p/Study22/blob/main/docs/apidocs/index.html">
 	Java API Documentation</a>&nbsp;●&nbsp;
     <a href="http://htmlpreview.github.io/?https://github.com/k1729p/Study22/blob/main/docs/testapidocs/index.html">
 	Java Test API Documentation</a><br>
-<img src="images/yellowHR-500.png">
+<img src="images/yellowHR-500.png" alt="">
 </P>
 
-<HR/>
+<HR>
 <H3 id="ONE">❶ Docker and Kubernetes Build</H3>
 
 <P>Action:<br>
@@ -118,7 +118,7 @@ of the batch file
 </P>
 
 <a href="#top">Back to the top of the page</a>
-<HR/>
+<HR>
 <H3 id="TWO">❷ Account Receiver</H3>
 <P><img src="images/greenCircle.png">
 2.1. The Docker container 'study22-acc-receiver' with Account Receiver application could be started 
@@ -210,8 +210,8 @@ The <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/ma
 </P>
 
 <P>
-<IMG src="images/ScreenshotHomePage.png" height="310" width="515"/><BR>
-<img src="images/blackArrowUp.png">
+<img src="images/ScreenshotHomePage.png" height="310" width="515" alt=""/><BR>
+<img src="images/blackArrowUp.png" alt="">
 <I>The screenshot of the home page fragment.</I>
 </P>
 
@@ -219,8 +219,8 @@ The <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/ma
 Reading the account with the given name.
 </P>
 <P>
-<IMG src="images/EndpointReadAccount.png" height="320" width="305"/><BR>
-<img src="images/blackArrowUp.png">
+<img src="images/EndpointReadAccount.png" height="320" width="305" alt=""/><BR>
+<img src="images/blackArrowUp.png" alt="">
 <I>The JSON result in the Firefox Browser from the endpoint path '/accounts/a-a-a-a'.</I>
 </P>
 
@@ -232,15 +232,15 @@ The <a href="images/ScreenshotOpenApiJson.png">screenshot</a> of the OpenAPI doc
 </P>
 
 <a href="#top">Back to the top of the page</a>
-<HR/>
+<HR>
 <H3 id="THREE">❸ Account Sender</H3>
 <P><img src="images/greenCircle.png">
 3.1 The Account Sender application with Kafka producer runs in endless loop.
 </P>
 
 <P>
-<IMG src="images/MermaidFlowchart3.png" height="135" width="325"/><br>
-<img src="images/blackArrowUp.png">
+<img src="images/MermaidFlowchart3.png" height="135" width="325" alt=""/><br>
+<img src="images/blackArrowUp.png" alt="">
 <I>The Account Sender generates accounts and feeds them to the Kafka broker.</I>
 </P>
 
@@ -254,7 +254,7 @@ The <a href="images/AccountSender.png">screenshot</a> of the Kubernetes pod 'stu
 </P>
 
 <a href="#top">Back to the top of the page</a>
-<HR/>
+<HR>
 <H3 id="FOUR">❹ Curl Client</H3>
 
 <P>Action:<br>
@@ -276,7 +276,7 @@ As a result of that action the Account Receiver will start anew the consuming an
 </P>
 
 <a href="#top">Back to the top of the page</a>
-<HR/>
+<HR>
 <h3>Dictionary</h3>
 <table style="border:solid">
 <tbody>
@@ -302,6 +302,6 @@ As a result of that action the Account Receiver will start anew the consuming an
 </table>
 
 <a href="#top">Back to the top of the page</a>
-<HR/>
+<HR>
 </BODY>
 </HTML>
