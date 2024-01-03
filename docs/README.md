@@ -109,8 +109,9 @@ for the applications: Account Sender and Account Receiver.<br>
 </P>
 
 <P><img src="images/greenCircle.png">
-1.4. The information about the Kubernetes (Helm charts, Docker images, Kubernetes cluster info, namespaces, services,<br/>
- persistent volumes, deployments, kind-control-plane node, pods) was extracted from the console log of the batch file<br>
+1.4. The information about the Kubernetes (Helm charts, Docker images, Kubernetes cluster info, namespaces,<br/>
+services, persistent volumes, deployments, kind-control-plane node, pods)<br/>
+was extracted from the log of the batch file
  <a href="https://github.com/k1729p/Study22/blob/main/0_batch/04%20Kubernetes%20build.bat"><I>"04 Kubernetes build.bat"</I></a> 
  and it is <a href="https://github.com/k1729p/Study22/blob/main/docs/texts/KubernetesInformation.txt">here</a>.
 </P>
