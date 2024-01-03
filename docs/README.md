@@ -286,8 +286,12 @@ As a result of that action the Account Receiver will start anew the consuming an
    <td style="border:solid">The Quarkus-specific library for the development of the Hibernate-based persistence layer (similar to Spring Data JPA)</td></tr>
 <tr><td style="border:solid"><b><a href="https://github.com/smallrye/smallrye-open-api">SmallRye OpenAPI</a></b></td>
    <td style="border:solid">The extension compliant with the <a href="https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md">OpenAPI v3 specification.</a></td>
+<tr><td style="border:solid"><b><a href="https://docs.docker.com/engine/reference/run/">Docker CLI</a></b></td>
+   <td style="border:solid">The Docker command-line interface</td></tr>
 <tr><td style="border:solid"><b><a href="https://kubernetes.io/docs/home/">Kubernetes</a></b></td>
    <td style="border:solid">The container-orchestration system for automating the container deployment, scaling, and management</td></tr>
+<tr><td style="border:solid"><b><a href="https://kubernetes.io/docs/reference/kubectl/">kubectl</a></b></td>
+   <td style="border:solid">The command line tool for communicating with a Kubernetes cluster's control plane</td></tr>
 <tr><td style="border:solid"><b><a href="https://kind.sigs.k8s.io/">kind</a></b></td>
    <td style="border:solid">The tool for running the local Kubernetes cluster in Docker container<br/>('Kubernetes in Docker')</td></tr>
 <tr><td style="border:solid"><b><a href="https://helm.sh/">Helm</a></b></td>
