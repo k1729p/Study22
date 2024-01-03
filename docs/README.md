@@ -234,16 +234,13 @@ The <a href="images/ScreenshotOpenApiJson.png">screenshot</a> of the OpenAPI doc
 <HR/>
 <H3 id="THREE">❸ Account Sender</H3>
 <P><img src="images/greenCircle.png">
-3.1 The Account Sender application with Kafka producer runs in endless loop. 
+3.1 The Account Sender application with Kafka producer runs in endless loop.
 </P>
 
 <P>
 <IMG src="images/MermaidFlowchart3.png" height="135" width="325"/><br>
 <img src="images/blackArrowUp.png">
 <I>The Account Sender generates accounts and feeds them to the Kafka broker.</I>
-</P>
-<P>
-For delivering the accounts to Kafka Broker it is responsible the sender application.<br>
 </P>
 
 <P>
@@ -252,7 +249,7 @@ The producer method:
 kp.sender.kafka.producers.AccountProducer::produceRecords</a> produces Kafka records.
 </P>
 <P>
-The Kubernetes pod 'study22-acc-sender' log <a href="images/AccountSender.png">screenshot</a>.
+The <a href="images/AccountSender.png">screenshot</a> of the Kubernetes pod 'study22-acc-sender' log.
 </P>
 
 <a href="#top">Back to the top of the page</a>
@@ -264,12 +261,12 @@ The Kubernetes pod 'study22-acc-sender' log <a href="images/AccountSender.png">s
 <img src="images/orangeSquare.png"> 1. With batch file
  <a href="https://github.com/k1729p/Study22/blob/main/0_batch/06%20CURL%20call%20Quarkus.bat">
  <I>"06 CURL call Quarkus.bat"</I></a>
- call the endpoints on Quarkus server.<br>
+ call the endpoints on Quarkus server using command-line tool curl.<br>
 <img src="images/orangeHR-500.png"></P>
 
 <P><img src="images/greenCircle.png"> 4.1. This batch calls the 'read account' endpoint and optionally the 'delete accounts' endpoint.
 The endpoint 'delete accounts' deletes all data from all databases.
-As a result of that action the Account Receiver repeats consuming and processing the Kafka records.
+As a result of that action the Account Receiver will start anew the consuming and the processing of the Kafka records.
 </P>
 <P>
 <IMG src="images/CURLdeleteAccounts.png" height="50" width="200"/><BR>
