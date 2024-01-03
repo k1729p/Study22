@@ -209,9 +209,9 @@ The <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/ma
 </P>
 
 <P>
-<IMG src="images/ScreenshotHomePage.png" height="300" width="505"/><BR>
+<IMG src="images/ScreenshotHomePage.png" height="310" width="515"/><BR>
 <img src="images/blackArrowUp.png">
-<I>The screenshot of the home page.</I>
+<I>The screenshot of the home page fragment.</I>
 </P>
 
 <P>
