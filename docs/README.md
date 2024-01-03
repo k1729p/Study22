@@ -150,7 +150,7 @@ of the Kubernetes pod 'study22-acc-receiver' log from the Quarkus application st
 The consumer method 
 <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/kafka/consumers/AccountConsumer.java#L47">
 kp.kafka.consumers.AccountConsumer::consume</a> consumes the Kafka records.<br/>
-The payload with JSON content is deserialized and persisted as a Account entity in the MongoDB database.<br/>
+The payload with JSON content is deserialized and persisted as an Account entity in the MongoDB database.<br/>
 The service method for the MongoDB database 
 <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/services/AccountMongoService.java#L54">
 kp.services.AccountMongoService::processPayload</a> creates the MongoDB entity from the Kafka record payload.
@@ -286,9 +286,9 @@ As a result of that action the Account Receiver will start anew the consuming an
 <tr><td style="border:solid"><b><a href="https://kubernetes.io/docs/home/">Kubernetes</a></b></td>
    <td style="border:solid">container-orchestration system for automating container deployment, scaling, and management</td></tr>
 <tr><td style="border:solid"><b><a href="https://kind.sigs.k8s.io/">kind</a></b></td>
-   <td style="border:solid">tool for running the local Kubernetes cluster in Docker container<br/>('Kubernetes in Docker')</td></tr>
+   <td style="border:solid">tool for running the local Kubernetes cluster in Docker container ('Kubernetes in Docker')</td></tr>
 <tr><td style="border:solid"><b><a href="https://github.com/bitnami/containers">Bitnami Images</a></b></td>
-   <td style="border:solid">source of the Kubernetes images used in this project</td></tr>
+   <td style="border:solid">The Bitnami Containers Library is used in this project as a source of the Kubernetes images</td></tr>
 </tbody>
 </table>
 
