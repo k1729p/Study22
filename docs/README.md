@@ -105,10 +105,9 @@ for the applications: Account Sender and Account Receiver.<br>
 </P>
 
 <P><img src="images/greenCircle.png">
-1.3. The Kubernetes 
-<a href="https://github.com/k1729p/Study22/blob/main/docs/KubernetesInformation.txt">information</a> extracted from the console log 
+1.3. The Kubernetes information extracted from the console log 
 of the batch <a href="https://github.com/k1729p/Study22/blob/main/0_batch/04%20Kubernetes%20build.bat">
-<I>"04 Kubernetes build.bat"</I></a>.
+<I>"04 Kubernetes build.bat"</I></a> is <a href="https://github.com/k1729p/Study22/blob/main/docs/texts/KubernetesInformation.txt">here</a>.
 </P>
 
 <a href="#top">Back to the top of the page</a>
