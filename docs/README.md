@@ -169,7 +169,7 @@ kp.resources.AccountResource</a>.
 <P>
 The endpoint method 
 <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/resources/AccountResource.java#L65">
-kp.resources.AccountResource::readAccount</a> reads account from the PostgreSQL database.
+kp.resources.AccountResource::readAccount</a> reads the account from the PostgreSQL database.
 In this case the account is absent in PostgreSQL database. 
 It causes that in next step the account is read from the MongoDB database and added to the PostgreSQL database.<br/>
 The service method for the MongoDB database 
