@@ -135,7 +135,7 @@ The Docker container 'study22-acc-receiver' with Account Receiver application co
 <img src="images/orangeSquare.png"><img src="images/spacer-32.png">Before this batch execution the application should be not running.<br>
 <img src="images/orangeHR-500.png"></P>
 <P>
-The Kubernetes pod 'study22-acc-receiver' log <a href="images/AccountReceiverStart.png">screenshot</a> for the Quarkus start.
+The Kubernetes pod 'study22-acc-receiver' log <a href="images/AccountReceiverStart.png">screenshot</a> from the Quarkus start.
 </P>
 
 <P><img src="images/greenCircle.png">
@@ -147,48 +147,40 @@ The Kubernetes pod 'study22-acc-receiver' log <a href="images/AccountReceiverSta
 The consumer method 
 <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/kafka/consumers/AccountConsumer.java#L47">
 kp.kafka.consumers.AccountConsumer::consume</a> consumes the Kafka records.<br/>
-The payload with JSON content is deserialized and persisted as a Account entity in the MongoDB database.
-</P>
-
-<P>
+The payload with JSON content is deserialized and persisted as a Account entity in the MongoDB database.<br/>
+The service method for the MongoDB database 
+<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/services/AccountMongoService.java#L54">
+kp.services.AccountMongoService::processPayload</a> creates MongoDB entity from Kafka record payload.<br/>
 The Kubernetes pod 'study22-acc-receiver' log <a href="images/AccountReceiverProcessPayload.png">screenshot</a>
- for the Kafka records payload processing.
+ from the 26 Kafka records payload processing.
 </P>
 
 <P><img src="images/greenCircle.png">
-2.2. Read the account, which is absent in PostgreSQL. 
+2.2. Read the account, which is <b>absent</b> in PostgreSQL. 
 </P>
 <IMG src="images/MermaidSequenceDiagram2.png" height="925" width="1000"/>
 <P>
-The GET endpoint in AccountResource class reads account by name from PostgreSQL database.<br>
-If entity is absent in PostgreSQL database, then it is read from MongoDB database and added as a new entity to PostgreSQL database.<br>
+The JSON REST service is implemented in class 
+<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/resources/AccountResource.java#L31">
+kp.resources.AccountResource</a>.
 </P>
 <P>
-The REST endpoint method 
+The endpoint method 
 <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/resources/AccountResource.java#L65">
-kp.resources.AccountResource::readAccount</a> first reads account data from PostgreSQL database.
-If account is absent in PostgreSQL database, then the account is read from MongoDB. 
-</P>
-
-<P>
+kp.resources.AccountResource::readAccount</a> first reads account by name from PostgreSQL database.
+In this case the account is absent in PostgreSQL database. 
+It causes that in next step the account is read from MongoDB database and saved to PostgreSQL database. 
 The service method for the MongoDB database 
-<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/services/AccountMongoService.java#L54">
-kp.services.AccountMongoService::processPayload</a> creates MongoDB entity from Kafka record payload.
-</P>
-
-<P>
+<a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/services/AccountMongoService.java#L86">
+kp.services.AccountMongoService::findAccount</a> finds MongoDB entity by name.<br/>
 The service method for the PostgreSQL database 
 <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/services/AccountPostgresService.java#L68">
-kp.services.AccountPostgresService::createAccount</a> creates new PostgreSQL entity from existing MongoDB entity.
-</P>
-
-<P>
-The Kubernetes pod 'study22-acc-receiver' log <a href="images/AccountReceiverReadAccount.png">screenshot</a>
- for the account reading.
+kp.services.AccountPostgresService::createAccount</a> creates a new PostgreSQL entity from existing MongoDB entity.<br/>
+The Kubernetes pod 'study22-acc-receiver' log <a href="images/AccountReceiverReadAccount.png">screenshot</a> from two accounts reading.
 </P>
 
 <P><img src="images/greenCircle.png">
-2.3. Read the account, which is present in PostgreSQL. 
+2.3. Read the account, which is <b>present</b> in PostgreSQL. 
 </P>
 <IMG src="images/MermaidSequenceDiagram3.png" height="615" width="810"/>
 
