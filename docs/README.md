@@ -134,6 +134,9 @@ The Docker container 'study22-acc-receiver' with Account Receiver application co
  start the Docker container with the Account Receiver application.<br>
 <img src="images/orangeSquare.png"><img src="images/spacer-32.png">Before this batch execution the application should be not running.<br>
 <img src="images/orangeHR-500.png"></P>
+<P>
+The Kubernetes pod <b>study22-acc-receiver</b> log <a href="images/AccountReceiverStart.png">screenshot</a> for the Quarkus start.
+</P>
 
 <P><img src="images/greenCircle.png">
 2.1. Receive the accounts from Kafka.
@@ -144,8 +147,12 @@ The Docker container 'study22-acc-receiver' with Account Receiver application co
 The consumer method 
 <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/kafka/consumers/AccountConsumer.java#L47">
 kp.kafka.consumers.AccountConsumer::consume</a> consumes the Kafka records.<br/>
-The payload with JSON content is deserialized and persisted as a Account entity in the MongoDB database.<br>
-<br>
+The payload with JSON content is deserialized and persisted as a Account entity in the MongoDB database.
+</P>
+
+<P>
+The Kubernetes pod <b>study22-acc-receiver</b> log <a href="images/AccountReceiverProcessPayload.png">screenshot</a>
+ for the Kafka records payload processing.
 </P>
 
 <P><img src="images/greenCircle.png">
@@ -175,8 +182,13 @@ The service method for the PostgreSQL database
 kp.services.AccountPostgresService::createAccount</a> creates new PostgreSQL entity from existing MongoDB entity.
 </P>
 
+<P>
+The Kubernetes pod <b>study22-acc-receiver</b> log <a href="images/AccountReceiverReadAccount.png">screenshot</a>
+ for the account reading.
+</P>
+
 <P><img src="images/greenCircle.png">
-2.3. Read the account, which is absent in PostgreSQL. 
+2.3. Read the account, which is present in PostgreSQL. 
 </P>
 <IMG src="images/MermaidSequenceDiagram3.png" height="615" width="810"/>
 
@@ -211,29 +223,10 @@ The OpenAPI document page <a href="images/ScreenshotOpenApiJson.png">screenshot<
 <I>The result from the endpoint 'Read account with name'.</I>
 </P>
 
-
-<P>
-The Kubernetes pod <b>study22-acc-sender</b> <a href="images/AccountSender.png">log screenshot</a>.
-</P>
-<P>
-The Kubernetes pod <b>study22-acc-receiver</b> <a href="images/AccountReceiverStart.png">screenshot</a> for the Quarkus start.
-</P>
-
-<P>
-The Kubernetes pod <b>study22-acc-receiver</b> <a href="images/AccountReceiverProcessPayload.png">screenshot</a>
-for the Kafka records payload processing.<br>
-From consumed Kafka records were created the account entities. Then they were persited in the MongoDB database.
-</P>
-
-<P>
-The Kubernetes pod <b>study22-acc-receiver</b> <a href="images/AccountReceiverReadAccount.png">screenshot</a>
-for the account reading.<br>
-REST endpoint.
-</P>
-
 <a href="#top">Back to the top of the page</a>
 <HR/>
 <H3 id="THREE">❸ Account Sender</H3>
+
 <P>
 <IMG src="images/MermaidFlowchart3.png" height="135" width="325"/><br>
 <img src="images/blackArrowUp.png">
@@ -250,6 +243,9 @@ For delivering the accounts to Kafka Broker it is responsible the sender applica
 The producer method: 
 <a href="https://github.com/k1729p/Study22/blob/main/account-sender/src/main/java/kp/sender/kafka/producers/AccountProducer.java#L45">
 kp.sender.kafka.producers.AccountProducer::produceRecords</a> produces Kafka records.
+</P>
+<P>
+The Kubernetes pod <b>study22-acc-sender</b> log <a href="images/AccountSender.png">screenshot</a>.
 </P>
 
 <a href="#top">Back to the top of the page</a>
