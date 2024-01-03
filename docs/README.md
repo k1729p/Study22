@@ -105,8 +105,8 @@ for the applications: Account Sender and Account Receiver.<br>
 </P>
 
 <P><img src="images/greenCircle.png">
-1.3. The Kubernetes information extracted from the console log 
-of the batch <a href="https://github.com/k1729p/Study22/blob/main/0_batch/04%20Kubernetes%20build.bat"><I>"04 Kubernetes build.bat"</I></a><br/>
+1.3. The information about the Kubernetes extracted from the console log 
+of the batch file <a href="https://github.com/k1729p/Study22/blob/main/0_batch/04%20Kubernetes%20build.bat"><I>"04 Kubernetes build.bat"</I></a><br/>
 (Helm charts, Docker images, Kubernetes cluster info, namespaces, services, persistent volumes, deployments,<br/>
 kind-control-plane node, pods) is <a href="https://github.com/k1729p/Study22/blob/main/docs/texts/KubernetesInformation.txt">here</a>.
 </P>
@@ -114,8 +114,13 @@ kind-control-plane node, pods) is <a href="https://github.com/k1729p/Study22/blo
 <a href="#top">Back to the top of the page</a>
 <HR/>
 <H3 id="TWO">❷ Account Receiver</H3>
-The Docker container with Account Receiver application could be started directly in <b>docker desktop</b> containerization tool or
-with batch file <I>"07 start Docker Quarkus.bat"</I>.
+The Docker container 'study22-acc-receiver' with Account Receiver application could be started 
+<UL>
+<LI>or directly in the containerization tool <b>docker desktop</b></LI>
+<LI>or with the batch file <a href="https://github.com/k1729p/Study22/blob/main/0_batch/07%20start%20Docker%20Quarkus.bat">
+ <I>"07 start Docker Quarkus.bat"</I></a></LI>
+</UL>
+
 <P>Action:<br>
 <img src="images/orangeHR-500.png"><br>
 <img src="images/orangeSquare.png"> 1. With batch file
