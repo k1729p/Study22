@@ -1,0 +1,98 @@
+= = = = = = = = = = Helm charts list = = = = = = = = = =
+NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
+kp-kafka        default         1               2024-01-02 11:33:03.3568856 +0100 CET   deployed        kafka-26.6.2            3.6.1
+kp-mongodb      default         1               2024-01-02 11:33:06.7726148 +0100 CET   deployed        mongodb-14.4.9          7.0.4
+kp-postgresql   default         1               2024-01-02 11:33:09.8856717 +0100 CET   deployed        postgresql-13.2.27      16.1.0
+
+= = = = = = = = = = kind load docker-image = = = = = = = = = =
+Image: "eeengcs/study22-acc-sender:1.0.0-SNAPSHOT" with ID "sha256:962207650338274e671150c2cd9fde1c786f4909276d1e504d8af1916c2582f0" found to be already present on all nodes.
+Image: "eeengcs/study22-acc-receiver:1.0.0-SNAPSHOT" with ID "sha256:e02462fe70321d7c198240288eb497fbcd13e126fb776d0e615aa64370fa1b4b" found to be already present on all nodes.
+
+= = = = = = = = = = kind-control-plane crictl images = = = = = = = = = =
+IMAGE                                      TAG                    IMAGE ID            SIZE
+docker.io/bitnami/kafka                    3.6.1-debian-11-r0     2928128b56490       359MB
+docker.io/bitnami/mongodb                  7.0.4-debian-11-r4     096ab4df2cb2f       230MB
+docker.io/bitnami/postgresql               16.1.0-debian-11-r18   c05bd05aae077       92.2MB
+docker.io/eeengcs/study22-acc-receiver     1.0.0-SNAPSHOT         e02462fe70321       213MB
+docker.io/eeengcs/study22-acc-sender       1.0.0-SNAPSHOT         9622076503382       458MB
+docker.io/kindest/kindnetd                 v20230511-dc714da8     b0b1fa0f58c6e       27.7MB
+docker.io/kindest/local-path-helper        v20230510-486859a6     be300acfc8622       3.05MB
+docker.io/kindest/local-path-provisioner   v20230511-dc714da8     ce18e076e9d4b       19.4MB
+registry.k8s.io/coredns/coredns            v1.10.1                ead0a4a53df89       16.2MB
+registry.k8s.io/etcd                       3.5.7-0                86b6af7dd652c       102MB
+registry.k8s.io/kube-apiserver             v1.27.3                c604ff157f0cf       83.5MB
+registry.k8s.io/kube-controller-manager    v1.27.3                9f8f3a9f3e8a9       74.4MB
+registry.k8s.io/kube-proxy                 v1.27.3                9d5429f6d7697       72.7MB
+registry.k8s.io/kube-scheduler             v1.27.3                205a4d549b94d       59.8MB
+registry.k8s.io/pause                      3.7                    221177c6082a8       311kB
+
+= = = = = = = = = = kind-control-plane crictl pods = = = = = = = = = =
+POD ID              CREATED             STATE               NAME                                         NAMESPACE            ATTEMPT             RUNTIME
+c58a2ce595c28       22 hours ago        Ready               study22-acc-receiver-6446bfb7cd-k5rql        default              0                   (default)
+ca4a545656ff2       22 hours ago        Ready               study22-acc-sender-6995c8b68-vbpwl           default              0                   (default)
+61ad37187932b       22 hours ago        Ready               kp-postgresql-0                              default              0                   (default)
+8139e6ff2ed17       22 hours ago        Ready               kp-mongodb-8597454889-rzgtv                  default              0                   (default)
+bf79447d04cfc       22 hours ago        Ready               kp-kafka-controller-2                        default              0                   (default)
+1b13c78259e58       22 hours ago        Ready               kp-kafka-controller-1                        default              0                   (default)
+68f115798e131       22 hours ago        Ready               kp-kafka-controller-0                        default              0                   (default)
+e320bb0084047       22 hours ago        Ready               coredns-5d78c9869d-zhddr                     kube-system          0                   (default)
+54b9f262a6eae       22 hours ago        Ready               coredns-5d78c9869d-67jn4                     kube-system          0                   (default)
+ee3e1ae0a24fe       22 hours ago        Ready               local-path-provisioner-6bc4bddd6b-fnwf6      local-path-storage   0                   (default)
+644a33024bb26       22 hours ago        Ready               kindnet-m7gb8                                kube-system          0                   (default)
+58e5fda0dd1cd       22 hours ago        Ready               kube-proxy-w8xpq                             kube-system          0                   (default)
+4c43d7bb2ff77       22 hours ago        Ready               kube-apiserver-kind-control-plane            kube-system          0                   (default)
+986d521af412f       22 hours ago        Ready               kube-controller-manager-kind-control-plane   kube-system          0                   (default)
+d865352c960dd       22 hours ago        Ready               kube-scheduler-kind-control-plane            kube-system          0                   (default)
+3fa9971d88fb7       22 hours ago        Ready               etcd-kind-control-plane                      kube-system          0                   (default)
+
+= = = = = = = = = = cluster-info = = = = = = = = = =
+Kubernetes control plane is running at https://127.0.0.1:58192
+CoreDNS is running at https://127.0.0.1:58192/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+
+= = = = = = = = = = get namespaces = = = = = = = = = =
+NAME                 STATUS   AGE
+default              Active   22h
+kube-node-lease      Active   22h
+kube-public          Active   22h
+kube-system          Active   22h
+local-path-storage   Active   22h
+
+= = = = = = = = = = get services = = = = = = = = = =
+NAME                           TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE   SELECTOR
+kp-kafka                       ClusterIP   10.96.188.234   <none>        9092/TCP                     22h   app.kubernetes.io/instance=kp-kafka,app.kubernetes.io/name=kafka,app.kubernetes.io/part-of=kafka
+kp-kafka-controller-headless   ClusterIP   None            <none>        9094/TCP,9092/TCP,9093/TCP   22h   app.kubernetes.io/component=controller-eligible,app.kubernetes.io/instance=kp-kafka,app.kubernetes.io/name=kafka,app.kubernetes.io/part-of=kafka
+kp-mongodb                     ClusterIP   10.96.86.1      <none>        27017/TCP                    22h   app.kubernetes.io/component=mongodb,app.kubernetes.io/instance=kp-mongodb,app.kubernetes.io/name=mongodb
+kp-postgresql                  ClusterIP   10.96.193.152   <none>        5432/TCP                     22h   app.kubernetes.io/component=primary,app.kubernetes.io/instance=kp-postgresql,app.kubernetes.io/name=postgresql
+kp-postgresql-hl               ClusterIP   None            <none>        5432/TCP                     22h   app.kubernetes.io/component=primary,app.kubernetes.io/instance=kp-postgresql,app.kubernetes.io/name=postgresql
+kubernetes                     ClusterIP   10.96.0.1       <none>        443/TCP                      22h   <none>
+study22-acc-receiver           NodePort    10.96.140.26    <none>        80:32123/TCP                 21h   app.kubernetes.io/name=study22-acc-receiver,app.kubernetes.io/version=1.0.0-SNAPSHOT
+
+= = = = = = = = = = get persistent volumes = = = = = = = = = =
+NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                                STORAGECLASS   REASON   AGE
+pvc-4a9e8e72-c6c7-41db-ba09-e908b9fa9a7d   8Gi        RWO            Delete           Bound    default/data-kp-kafka-controller-0   standard                22h
+pvc-65794a32-aba8-4950-987e-1956c111dcdd   8Gi        RWO            Delete           Bound    default/data-kp-postgresql-0         standard                22h
+pvc-ab98161f-62af-4b96-a132-030c84e2a719   8Gi        RWO            Delete           Bound    default/data-kp-kafka-controller-1   standard                22h
+pvc-b3ce2e82-13d0-40ff-80ba-00669b2d076b   8Gi        RWO            Delete           Bound    default/data-kp-kafka-controller-2   standard                22h
+pvc-cb6ce047-cfbf-4413-807c-d0eb7394c3f2   8Gi        RWO            Delete           Bound    default/kp-mongodb                   standard                22h
+
+= = = = = = = = = = get deployments = = = = = = = = = =
+NAME                   READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS             IMAGES                                         SELECTOR
+kp-mongodb             1/1     1            1           22h   mongodb                docker.io/bitnami/mongodb:7.0.4-debian-11-r4   app.kubernetes.io/component=mongodb,app.kubernetes.io/instance=kp-mongodb,app.kubernetes.io/name=mongodb
+study22-acc-receiver   1/1     1            1           21h   study22-acc-receiver   eeengcs/study22-acc-receiver:1.0.0-SNAPSHOT    app.kubernetes.io/name=study22-acc-receiver,app.kubernetes.io/version=1.0.0-SNAPSHOT
+study22-acc-sender     1/1     1            1           21h   study22-acc-sender     eeengcs/study22-acc-sender:1.0.0-SNAPSHOT      app.kubernetes.io/name=study22-acc-sender,app.kubernetes.io/version=1.0.0-SNAPSHOT
+
+= = = = = = = = = = get nodes = = = = = = = = = =
+NAME                 STATUS   ROLES           AGE   VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION                       CONTAINER-RUNTIME
+kind-control-plane   Ready    control-plane   22h   v1.27.3   172.20.0.2    <none>        Debian GNU/Linux 11 (bullseye)   5.10.102.1-microsoft-standard-WSL2   containerd://1.7.1
+
+= = = = = = = = = = get pods = = = = = = = = = =
+NAME                                    READY   STATUS    RESTARTS   AGE   IP            NODE                 NOMINATED NODE   READINESS GATES
+kp-kafka-controller-0                   1/1     Running   0          22h   10.244.0.9    kind-control-plane   <none>           <none>
+kp-kafka-controller-1                   1/1     Running   0          22h   10.244.0.10   kind-control-plane   <none>           <none>
+kp-kafka-controller-2                   1/1     Running   0          22h   10.244.0.11   kind-control-plane   <none>           <none>
+kp-mongodb-8597454889-rzgtv             1/1     Running   0          22h   10.244.0.13   kind-control-plane   <none>           <none>
+kp-postgresql-0                         1/1     Running   0          22h   10.244.0.14   kind-control-plane   <none>           <none>
+study22-acc-receiver-6446bfb7cd-k5rql   1/1     Running   0          21h   10.244.0.16   kind-control-plane   <none>           <none>
+study22-acc-sender-6995c8b68-vbpwl      1/1     Running   0          21h   10.244.0.15   kind-control-plane   <none>           <none>

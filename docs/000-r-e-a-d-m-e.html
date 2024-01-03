@@ -15,10 +15,10 @@ Topics: Kubernetes ● Docker ● Quarkus ● Kafka ● MongoDB ● PostgreSQL
 <IMG src="images/MermaidFlowchart1.png" height="400" width="430"/>
 
 <P>
-The Account Receiver is implemented as a Quarkus application with Kafka consumer and REST endpoints.
+The Account Receiver is implemented as a Quarkus application with Kafka consumer and JSON REST service.
 </P>
 <P>
-Big Kafka record lists are fast consumed and stored in the MongoDB document database.<br/> 
+Big list with Kafka records is fast consumed and stored in the document database MongoDB.<br/> 
 <IMG src="images/MermaidFlowchart2.png" height="75" width="485"/><br>
 <img src="images/blackArrowUp.png">
 <I>The data caching strategy implemented in the Account Receiver.</I>
@@ -69,24 +69,26 @@ Java source code. Packages:<br>
 <img src="images/orangeHR-500.png"><br>
 <img src="images/orangeSquare.png"> 1. With batch file
 <a href="https://github.com/k1729p/Study22/blob/main/0_batch/01%20Docker%20run%20Kafka%20MongoDB%20PostgreSQL.bat">
-<I>"01 Docker run Kafka MongoDB PostgreSQL.bat"</I></a> create and run Docker containers<br>
+<I>"01 Docker run Kafka MongoDB PostgreSQL.bat"</I></a> create and run Docker containers 'kp-kafka', 'kp-mongodb', 'kp-postgresql'<br>
 <img src="images/orangeSquare.png"><img src="images/spacer-32.png">for Kafka broker, MongoDB database, and PostgreSQL database.<br>
 <img src="images/orangeSquare.png"> 2. With batch file
 <a href="https://github.com/k1729p/Study22/blob/main/0_batch/02%20Docker%20build%20sender%20and%20start.bat">
-<I>"02 Docker build sender and start.bat"</I></a> build the Docker image and<br>
-<img src="images/orangeSquare.png"><img src="images/spacer-32.png"> start the container with the sender application.<br>
+<I>"02 Docker build sender and start.bat"</I></a> build the Docker image for the Account Sender application and<br>
+<img src="images/orangeSquare.png"><img src="images/spacer-32.png"> start the Docker container 'study22-acc-sender'.<br>
 <img src="images/orangeSquare.png"> 3. With batch file
 <a href="https://github.com/k1729p/Study22/blob/main/0_batch/03%20Docker%20build%20receiver%20and%20start%20Quarkus.bat">
-<I>"03 Docker build receiver and start Quarkus.bat"</I></a> build the Docker image and<br>
-<img src="images/orangeSquare.png"><img src="images/spacer-32.png">start the container with the receiver application.
-It builds the Quarkus native image.<br>
+<I>"03 Docker build receiver and start Quarkus.bat"</I></a> build the Docker image for the Account Receiver application and<br>
+<img src="images/orangeSquare.png"><img src="images/spacer-32.png">start the Docker container 'study22-acc-receiver'.<br>
+<img src="images/orangeSquare.png"><img src="images/spacer-32.png">It compiles the Account Receiver application 
+to a native executable and packages this in a container.<br>
 <img src="images/orangeSquare.png"> 4. With batch file
 <a href="https://github.com/k1729p/Study22/blob/main/0_batch/04%20Kubernetes%20build.bat">
 <I>"04 Kubernetes build.bat"</I></a> create kind cluster, install Kafka, MongoDB, and PostgreSQL, and<br>
-<img src="images/orangeSquare.png"><img src="images/spacer-32.png">load Docker images for the sender application and the receiver application.<br>
+<img src="images/orangeSquare.png"><img src="images/spacer-32.png">load Docker images 
+for the applications: Account Sender and Account Receiver.<br>
 <img src="images/orangeSquare.png"> 5. With batch file
 <a href="https://github.com/k1729p/Study22/blob/main/0_batch/05%20show%20Kubernetes%20logs.bat">
-<I>"05 show Kubernetes logs.bat"</I></a> show a log tail for a broker, databases and applications.<br>
+<I>"05 show Kubernetes logs.bat"</I></a> show a Kubernetes log tail for a broker, databases and applications.<br>
 <img src="images/orangeHR-500.png"></P>
 
 <P><img src="images/greenCircle.png">
@@ -98,6 +100,13 @@ It builds the Quarkus native image.<br>
 1.2. The Kubernetes configuration files are in directory:
 <a href="https://github.com/k1729p/Study22/tree/main/kubernetes-config">kubernetes-config</a>
 </P>
+
+<P><img src="images/greenCircle.png">
+1.3. The Kubernetes 
+<a href="https://github.com/k1729p/Study22/blob/main/docs/KubernetesInformation.txt">information</a> extracted from the console log 
+of the batch "04 Kubernetes build.bat".
+</P>
+c:\1_workspace\Study22 
 
 <a href="#top">Back to the top of the page</a>
 <HR/>
