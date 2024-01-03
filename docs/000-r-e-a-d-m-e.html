@@ -69,16 +69,18 @@ Java source code. Packages:<br>
 <img src="images/orangeHR-500.png"><br>
 <img src="images/orangeSquare.png"> 1. With batch file
 <a href="https://github.com/k1729p/Study22/blob/main/0_batch/01%20Docker%20run%20Kafka%20MongoDB%20PostgreSQL.bat">
-<I>"01 Docker run Kafka MongoDB PostgreSQL.bat"</I></a> create and run Docker containers 'kp-kafka', 'kp-mongodb', 'kp-postgresql'<br>
-<img src="images/orangeSquare.png"><img src="images/spacer-32.png">for Kafka broker, MongoDB database, and PostgreSQL database.<br>
+<I>"01 Docker run Kafka MongoDB PostgreSQL.bat"</I></a> create and run<br>
+<img src="images/orangeSquare.png"><img src="images/spacer-32.png">Docker containers 'kp-kafka', 'kp-mongodb', 'kp-postgresql'.<br>
 <img src="images/orangeSquare.png"> 2. With batch file
 <a href="https://github.com/k1729p/Study22/blob/main/0_batch/02%20Docker%20build%20sender%20and%20start.bat">
-<I>"02 Docker build sender and start.bat"</I></a> build the Docker image for the Account Sender application and<br>
-<img src="images/orangeSquare.png"><img src="images/spacer-32.png"> start the Docker container 'study22-acc-sender'.<br>
+<I>"02 Docker build sender and start.bat"</I></a> build the Docker image<br>
+<img src="images/orangeSquare.png"><img src="images/spacer-32.png"> for the Account Sender application and 
+start the Docker container 'study22-acc-sender'.<br>
 <img src="images/orangeSquare.png"> 3. With batch file
 <a href="https://github.com/k1729p/Study22/blob/main/0_batch/03%20Docker%20build%20receiver%20and%20start%20Quarkus.bat">
-<I>"03 Docker build receiver and start Quarkus.bat"</I></a> build the Docker image for the Account Receiver application and<br>
-<img src="images/orangeSquare.png"><img src="images/spacer-32.png">start the Docker container 'study22-acc-receiver'.<br>
+<I>"03 Docker build receiver and start Quarkus.bat"</I></a> build the Docker image<br>
+<img src="images/orangeSquare.png"><img src="images/spacer-32.png"> for the Account Receiver application and 
+start the Docker container 'study22-acc-receiver'.<br>
 <img src="images/orangeSquare.png"><img src="images/spacer-32.png">It compiles the Account Receiver application 
 to a native executable and packages this in a container.<br>
 <img src="images/orangeSquare.png"> 4. With batch file
@@ -88,7 +90,8 @@ to a native executable and packages this in a container.<br>
 for the applications: Account Sender and Account Receiver.<br>
 <img src="images/orangeSquare.png"> 5. With batch file
 <a href="https://github.com/k1729p/Study22/blob/main/0_batch/05%20show%20Kubernetes%20logs.bat">
-<I>"05 show Kubernetes logs.bat"</I></a> show a Kubernetes log tail for a broker, databases and applications.<br>
+<I>"05 show Kubernetes logs.bat"</I></a> show a Kubernetes logs tail for
+<img src="images/orangeSquare.png"><img src="images/spacer-32.png">Kafka, MongoDB, PostgreSQL, Account Sender, and Account Receiver.<br>
 <img src="images/orangeHR-500.png"></P>
 
 <P><img src="images/greenCircle.png">
