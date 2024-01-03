@@ -150,7 +150,9 @@ kp.kafka.consumers.AccountConsumer::consume</a> consumes the Kafka records.<br/>
 The payload with JSON content is deserialized and persisted as a Account entity in the MongoDB database.<br/>
 The service method for the MongoDB database 
 <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/services/AccountMongoService.java#L54">
-kp.services.AccountMongoService::processPayload</a> creates MongoDB entity from Kafka record payload.<br/>
+kp.services.AccountMongoService::processPayload</a> creates the MongoDB entity from the Kafka record payload.
+</P>
+<P>
 The Kubernetes pod 'study22-acc-receiver' log <a href="images/AccountReceiverProcessPayload.png">screenshot</a>
  from the 26 Kafka records payload processing.
 </P>
@@ -167,15 +169,17 @@ kp.resources.AccountResource</a>.
 <P>
 The endpoint method 
 <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/resources/AccountResource.java#L65">
-kp.resources.AccountResource::readAccount</a> first reads account by name from PostgreSQL database.
+kp.resources.AccountResource::readAccount</a> first reads account from PostgreSQL database.
 In this case the account is absent in PostgreSQL database. 
-It causes that in next step the account is read from MongoDB database and saved to PostgreSQL database. 
+It causes that in next step the account is read from MongoDB database and saved to PostgreSQL database.<br/>
 The service method for the MongoDB database 
 <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/services/AccountMongoService.java#L86">
 kp.services.AccountMongoService::findAccount</a> finds MongoDB entity by name.<br/>
 The service method for the PostgreSQL database 
 <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/services/AccountPostgresService.java#L68">
-kp.services.AccountPostgresService::createAccount</a> creates a new PostgreSQL entity from existing MongoDB entity.<br/>
+kp.services.AccountPostgresService::createAccount</a> creates a new PostgreSQL entity from existing MongoDB entity.
+</P>
+<P>
 The Kubernetes pod 'study22-acc-receiver' log <a href="images/AccountReceiverReadAccount.png">screenshot</a> from two accounts reading.
 </P>
 
