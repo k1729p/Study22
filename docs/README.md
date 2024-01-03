@@ -90,7 +90,7 @@ to a native executable and packages this in a container.<br>
 for the applications: Account Sender and Account Receiver.<br>
 <img src="images/orangeSquare.png"> 5. With batch file
 <a href="https://github.com/k1729p/Study22/blob/main/0_batch/05%20show%20Kubernetes%20logs.bat">
-<I>"05 show Kubernetes logs.bat"</I></a> show a Kubernetes logs tail for
+<I>"05 show Kubernetes logs.bat"</I></a> show a Kubernetes logs tail for<br>
 <img src="images/orangeSquare.png"><img src="images/spacer-32.png">Kafka, MongoDB, PostgreSQL, Account Sender, and Account Receiver.<br>
 <img src="images/orangeHR-500.png"></P>
 
