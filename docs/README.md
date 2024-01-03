@@ -137,7 +137,8 @@ of the batch file
 <img src="images/orangeSquare.png"><img src="images/spacer-32.png">Before this batch execution the application should be not running.<br>
 <img src="images/orangeHR-500.png"></P>
 <P>
-The Kubernetes pod 'study22-acc-receiver' log <a href="images/AccountReceiverStart.png">screenshot</a> from the Quarkus start.
+The <a href="images/AccountReceiverStart.png">screenshot</a> 
+of the Kubernetes pod 'study22-acc-receiver' log from the Quarkus application start.
 </P>
 
 <P><img src="images/greenCircle.png">
@@ -155,8 +156,8 @@ The service method for the MongoDB database
 kp.services.AccountMongoService::processPayload</a> creates the MongoDB entity from the Kafka record payload.
 </P>
 <P>
-The Kubernetes pod 'study22-acc-receiver' log <a href="images/AccountReceiverProcessPayload.png">screenshot</a>
- from the 26 Kafka records payload processing.
+The <a href="images/AccountReceiverProcessPayload.png">screenshot</a> 
+of the Kubernetes pod 'study22-acc-receiver' log from the 26 Kafka records payload processing.
 </P>
 
 <P><img src="images/greenCircle.png">
@@ -182,7 +183,8 @@ The service method for the PostgreSQL database
 kp.services.AccountPostgresService::createAccount</a> creates a new PostgreSQL entity from existing MongoDB entity.
 </P>
 <P>
-The Kubernetes pod 'study22-acc-receiver' log <a href="images/AccountReceiverReadAccount.png">screenshot</a> from two accounts reading.
+The <a href="images/AccountReceiverReadAccount.png">screenshot</a> 
+of the Kubernetes pod 'study22-acc-receiver' log from two accounts reading.
 </P>
 
 <P><img src="images/greenCircle.png">
@@ -191,18 +193,18 @@ The Kubernetes pod 'study22-acc-receiver' log <a href="images/AccountReceiverRea
 <IMG src="images/MermaidSequenceDiagram3.png" height="615" width="810"/>
 
 <P><img src="images/greenCircle.png">
-2.5. The Account Receiver frontend with the REST endpoints.
+2.5. The Account Receiver frontend.
 <P>
 </P>
- The web resources were placed in the directory 
+ The web resources for Quarkus were placed in the directory 
 <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/resources/META-INF/resources"
 >'src/main/resources/META-INF/resources'</a>.
 </P>
 <P>
-The <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/resources/META-INF/resources/index.html">home page</a>:
+The <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/resources/META-INF/resources/index.html">home page</a> URL:
 <UL>
-<LI>URL on Kubernetes - <a href="http://localhost:32123/">http://localhost:32123/</a></LI>
-<LI>URL on Docker - <a href="http://localhost:8080/">http://localhost:8080/</a></LI>
+<LI>on Kubernetes - <a href="http://localhost:32123/">http://localhost:32123/</a></LI>
+<LI>on Docker - <a href="http://localhost:8080/">http://localhost:8080/</a></LI>
 </UL>
 </P>
 
@@ -213,15 +215,19 @@ The <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/ma
 </P>
 
 <P>
-Reading the account with the given name.<BR>
+Reading the account with the given name.
+</P>
+<P>
 <IMG src="images/EndpointReadAccount.png" height="320" width="305"/><BR>
 <img src="images/blackArrowUp.png">
 <I>The JSON result in the Firefox Browser from the endpoint path '/accounts/a-a-a-a'.</I>
 </P>
 
 <P>
-The Swagger UI page <a href="images/ScreenshotSwaggerUI.png">screenshot</a>.  
-The OpenAPI document page <a href="images/ScreenshotOpenApiJson.png">screenshot</a>.
+The <a href="images/ScreenshotSwaggerUI.png">screenshot</a> of the Swagger UI page.  
+</P>
+<P>
+The <a href="images/ScreenshotOpenApiJson.png">screenshot</a> of the OpenAPI document page.
 </P>
 
 <a href="#top">Back to the top of the page</a>
