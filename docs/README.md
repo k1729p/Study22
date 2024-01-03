@@ -135,7 +135,7 @@ The Docker container 'study22-acc-receiver' with Account Receiver application co
 <img src="images/orangeSquare.png"><img src="images/spacer-32.png">Before this batch execution the application should be not running.<br>
 <img src="images/orangeHR-500.png"></P>
 <P>
-The Kubernetes pod <b>study22-acc-receiver</b> log <a href="images/AccountReceiverStart.png">screenshot</a> for the Quarkus start.
+The Kubernetes pod 'study22-acc-receiver' log <a href="images/AccountReceiverStart.png">screenshot</a> for the Quarkus start.
 </P>
 
 <P><img src="images/greenCircle.png">
@@ -151,7 +151,7 @@ The payload with JSON content is deserialized and persisted as a Account entity 
 </P>
 
 <P>
-The Kubernetes pod <b>study22-acc-receiver</b> log <a href="images/AccountReceiverProcessPayload.png">screenshot</a>
+The Kubernetes pod 'study22-acc-receiver' log <a href="images/AccountReceiverProcessPayload.png">screenshot</a>
  for the Kafka records payload processing.
 </P>
 
@@ -183,7 +183,7 @@ kp.services.AccountPostgresService::createAccount</a> creates new PostgreSQL ent
 </P>
 
 <P>
-The Kubernetes pod <b>study22-acc-receiver</b> log <a href="images/AccountReceiverReadAccount.png">screenshot</a>
+The Kubernetes pod 'study22-acc-receiver' log <a href="images/AccountReceiverReadAccount.png">screenshot</a>
  for the account reading.
 </P>
 
@@ -245,7 +245,7 @@ The producer method:
 kp.sender.kafka.producers.AccountProducer::produceRecords</a> produces Kafka records.
 </P>
 <P>
-The Kubernetes pod <b>study22-acc-sender</b> log <a href="images/AccountSender.png">screenshot</a>.
+The Kubernetes pod 'study22-acc-sender' log <a href="images/AccountSender.png">screenshot</a>.
 </P>
 
 <a href="#top">Back to the top of the page</a>
