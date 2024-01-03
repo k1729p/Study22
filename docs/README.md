@@ -191,16 +191,18 @@ The Kubernetes pod 'study22-acc-receiver' log <a href="images/AccountReceiverRea
 <IMG src="images/MermaidSequenceDiagram3.png" height="615" width="810"/>
 
 <P><img src="images/greenCircle.png">
-2.5. The REST endpoint. The web resources were placed in directory 
+2.5. The Account Receiver frontend with the REST endpoints.
+<P>
+</P>
+ The web resources were placed in the directory 
 <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/resources/META-INF/resources"
 >'src/main/resources/META-INF/resources'</a>.
 </P>
 <P>
-The Account Receiver <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/resources/META-INF/resources/index.html"
->home page</a>:
+The <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/resources/META-INF/resources/index.html">home page</a>:
 <UL>
-<LI>on Kubernetes - <a href="http://localhost:32123/">http://localhost:32123/</a></LI>
-<LI>on Docker - <a href="http://localhost:8080/">http://localhost:8080/</a></LI>
+<LI>URL on Kubernetes - <a href="http://localhost:32123/">http://localhost:32123/</a></LI>
+<LI>URL on Docker - <a href="http://localhost:8080/">http://localhost:8080/</a></LI>
 </UL>
 </P>
 
@@ -209,23 +211,24 @@ The Account Receiver <a href="https://github.com/k1729p/Study22/blob/main/accoun
 <img src="images/blackArrowUp.png">
 <I>The screenshot of the home page.</I>
 </P>
-<P>
-The Swagger UI page <a href="images/ScreenshotSwaggerUI.png">screenshot</a>. 
-The OpenAPI document page <a href="images/ScreenshotOpenApiJson.png">screenshot</a>.
-</P>
 
-<P>Reading the account with given name.
 <P>
+Reading the account with the given name.<BR>
 <IMG src="images/EndpointReadAccount.png" height="320" width="305"/><BR>
 <img src="images/blackArrowUp.png">
-<I>The result from the endpoint 'Read account with name'.</I>
+<I>The JSON result in the Firefox Browser from the endpoint path '/accounts/a-a-a-a'.</I>
+</P>
+
+<P>
+The Swagger UI page <a href="images/ScreenshotSwaggerUI.png">screenshot</a>.  
+The OpenAPI document page <a href="images/ScreenshotOpenApiJson.png">screenshot</a>.
 </P>
 
 <a href="#top">Back to the top of the page</a>
 <HR/>
 <H3 id="THREE">❸ Account Sender</H3>
 <P><img src="images/greenCircle.png">
-3.1 The Java application with Kafka producer runs in endless loop. 
+3.1 The Account Sender application with Kafka producer runs in endless loop. 
 </P>
 
 <P>
