@@ -105,7 +105,11 @@ for the applications: Account Sender and Account Receiver.<br>
 </P>
 
 <P><img src="images/greenCircle.png">
-1.3. The information about the Kubernetes extracted from the console log 
+1.3. The <a href="images/ScreenshotDockerContainers.png">screenshot</a> of the created Docker containers.
+</P>
+
+<P><img src="images/greenCircle.png">
+1.4. The information about the Kubernetes extracted from the console log 
 of the batch file <a href="https://github.com/k1729p/Study22/blob/main/0_batch/04%20Kubernetes%20build.bat"><I>"04 Kubernetes build.bat"</I></a><br/>
 (Helm charts, Docker images, Kubernetes cluster info, namespaces, services, persistent volumes, deployments,<br/>
 kind-control-plane node, pods) is <a href="https://github.com/k1729p/Study22/blob/main/docs/texts/KubernetesInformation.txt">here</a>.
@@ -127,23 +131,19 @@ The Docker container 'study22-acc-receiver' with Account Receiver application co
  <a href="https://github.com/k1729p/Study22/blob/main/0_batch/07%20start%20Docker%20Quarkus.bat">
  <I>"07 start Docker Quarkus.bat"</I></a>
  start the Docker container with the Account Receiver application.<br>
-<img src="images/orangeSquare.png"><img src="images/spacer-32.png">Before this batch execution the Account Receiver should be stopped.<br>
+<img src="images/orangeSquare.png"><img src="images/spacer-32.png">Before this batch execution the application should be not running.<br>
 <img src="images/orangeHR-500.png"></P>
 
 <P><img src="images/greenCircle.png">
-2.1. Consume the accounts from Kafka and persist them in MongoDB.
+2.1. Receive the accounts from Kafka.
 </P>
 <IMG src="images/MermaidSequenceDiagram1.png" height="560" width="885"/>
 
 <P>
-The consumer method for Kafka record 
+The consumer method 
 <a href="https://github.com/k1729p/Study22/blob/main/account-receiver/src/main/java/kp/kafka/consumers/AccountConsumer.java#L47">
-kp.kafka.consumers.AccountConsumer::consume</a> consumes Kafka records.
-</P>
-
-<P>
-The lists with Kafka records are consumed in the AccountConsumer class.<br>
-The payload with JSON content is deserialized and persisted as a Account entity in MongoDB database.<br>
+kp.kafka.consumers.AccountConsumer::consume</a> consumes the Kafka records.<br/>
+The payload with JSON content is deserialized and persisted as a Account entity in the MongoDB database.<br>
 <br>
 </P>
 
@@ -210,9 +210,6 @@ The OpenAPI document page <a href="images/ScreenshotOpenApiJson.png">screenshot<
 <I>The result from the endpoint 'Read account with name'.</I>
 </P>
 
-<P>
-The <a href="images/ScreenshotDockerContainers.png">screenshot</a> of the created Docker containers.
-</P>
 
 <P>
 The Kubernetes pod <b>study22-acc-sender</b> <a href="images/AccountSender.png">log screenshot</a>.
