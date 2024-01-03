@@ -284,9 +284,9 @@ As a result of that action the Account Receiver will start anew the consuming an
 <tr><td style="border:solid"><b><a href="https://quarkus.io/guides/hibernate-orm-panache">Panache</a></b></td>
    <td style="border:solid">Quarkus-specific library for the development of the Hibernate-based persistence layer (similar to Spring Data JPA)</td></tr>
 <tr><td style="border:solid"><b><a href="https://kubernetes.io/docs/home/">Kubernetes</a></b></td>
-   <td style="border:solid">container-orchestration system for automating container deployment, scaling, and management</td></tr>
+   <td style="border:solid">The container-orchestration system for automating container deployment, scaling, and management</td></tr>
 <tr><td style="border:solid"><b><a href="https://kind.sigs.k8s.io/">kind</a></b></td>
-   <td style="border:solid">tool for running the local Kubernetes cluster in Docker container ('Kubernetes in Docker')</td></tr>
+   <td style="border:solid">The tool for running the local Kubernetes cluster in Docker container ('Kubernetes in Docker')</td></tr>
 <tr><td style="border:solid"><b><a href="https://github.com/bitnami/containers">Bitnami Images</a></b></td>
    <td style="border:solid">The Bitnami Containers Library is used in this project as a source of the Kubernetes images</td></tr>
 </tbody>
