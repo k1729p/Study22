@@ -1,0 +1,12 @@
+For the creation of the 'kind.yaml' file it was used 'quarkus-kind' plugin in 'pom.xml':
+
+    <dependency>
+        <groupId>io.quarkus</groupId>
+        <artifactId>quarkus-kind</artifactId>
+    </dependency>
+
+The successful Maven build with this plugin requires
+the file 'kind.exe' to be present in the working directory.
+
+In actual 'pom.xml' this plugin is not used and
+the file '...\target\kubernetes\kind.yaml' is not created.
