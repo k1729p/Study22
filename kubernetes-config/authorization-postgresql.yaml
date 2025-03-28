@@ -1,0 +1,6 @@
+auth:
+  enablePostgresUser: true
+  postgresPassword: "mikimiki"
+  username: "postgres"
+  password: "mikimiki"
+  database: "postgres"

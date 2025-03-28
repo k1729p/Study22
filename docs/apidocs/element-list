@@ -1,0 +1,13 @@
+kp
+kp.kafka.consumers
+kp.models
+kp.mongo.entities
+kp.postgres.entities
+kp.postgres.repositories
+kp.resources
+kp.sender
+kp.sender.kafka.producers
+kp.sender.kafka.serializers
+kp.sender.models
+kp.sender.utils
+kp.services

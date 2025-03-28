@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+	<title>Study22</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="icon" href="./favicon.ico" />
+	<style>
+		body {
+			background-color: wheat;
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			border: 1px solid black;
+		}
+
+		caption {
+			padding: 5px;
+		}
+
+		table td {
+			padding: 3px;
+			border: 1px solid black;
+		}
+
+		.col-1 {
+			width: 30%
+		}
+
+		.col-2 {
+			width: 70%
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Study22</h1>
+	<p>The Account Receiver endpoints:</p>
+	<table>
+		<tr><td class="col-1">
+			Read account with name 'a-a-a-a'
+		</td><td class="col-2">
+			<a href="/accounts/a-a-a-a">/accounts/a-a-a-a</a>
+		</td></tr>
+		<tr><td class="col-1">
+			Read account with name 'a-a-a-z'
+		</td><td class="col-2">
+			<a href="/accounts/a-a-a-z">/accounts/a-a-a-z</a>
+		</td></tr>
+		<tr><td class="col-1">
+			<mark>Swagger UI</mark>
+		</td><td class="col-2">
+			<a href="/q/swagger-ui/">/q/swagger-ui/</a>
+		</td></tr>
+		<tr><td class="col-1">
+			OpenAPI document
+		</td><td class="col-2">
+			<a href="/q/openapi.json">/q/openapi.json</a>
+		</td></tr>
+	</table>
+	<p>The ports used by those endpoints:</p>
+	<table>
+		<tr><td class="col-1">
+			<b>Quarkus</b> server running on <b>Kubernetes</b>
+		</td><td class="col-2">
+			port 32123
+		</td></tr>
+		<tr><td class="col-1">
+			<b>Quarkus</b> server running on <b>Docker</b>
+		</td><td class="col-2">
+			port 8080
+		</td></tr>
+	</table>
+</body>
+</html>

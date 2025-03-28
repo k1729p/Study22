@@ -1,0 +1,6 @@
+auth:
+  rootUser: root
+  rootPassword: "mikimiki"
+  usernames: [ "kp" ]
+  passwords: [ "mikimiki" ]
+  databases: [ "kp_database" ]

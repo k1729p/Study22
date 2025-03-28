@@ -1,0 +1,4 @@
+sasl:
+  client:
+    users: [ "kp" ]
+    passwords: [ "mikimiki" ]
